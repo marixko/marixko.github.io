@@ -6,15 +6,23 @@ date: 2018-07-27
 comments: false
 ---
 
-##Hello there! 
+## Hello there! 
 
 
 I am Lilianne Nakazono, I am a grad student at University of São Paulo in Brazil. I have been working with massive astronomical databases applying statistics and computational methods in order to find new unclassified quasars. 
-I enjoy everything that involves data to work with!
+I enjoy everything that involves data to work with! 
 
 
 
-## Preview
+## Why Astronomy?
+
+I don't have a beautiful story from childhood as most astronomers do. However I always wanted to become a scientist, no matter in what subject. There were two types of subject that intregued me: really small things that I couldn't even see (Microbiology) and huge stuff around there that I couldn't even imagine (Astronomy). 
+I started in Statistics at University of São Paulo, because at that time I still didn't know what I really wanted, but I knew that a degree in Statistics could be useful to me at any path I would choose later. 
+
+
+
+
+
 
 {% capture images %}
     https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
