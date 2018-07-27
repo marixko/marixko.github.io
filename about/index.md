@@ -1,24 +1,18 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, moon]
-date: 2016-03-21
+title: About me
+tags: [about]
+date: 2018-07-27
 comments: false
 ---
-    
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+##Hello there! 
+
+
+I am Lilianne Nakazono, I am a grad student at University of São Paulo in Brazil. I have been working with massive astronomical databases applying statistics and computational methods in order to find new unclassified quasars. 
+I enjoy everything that involves data to work with!
+
+
 
 ## Preview
 
