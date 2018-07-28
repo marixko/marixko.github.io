@@ -13,7 +13,7 @@ I am Lilianne Nakazono, I am a grad student at University of São Paulo in Brazi
 I enjoy everything that involves data to work with! 
 
 <figure>
-    <a href="/assets/img/profile.jpg"><img src="/assets/img/profile.jpg"></a>
+    <a href="/assets/img/profile.jpg"><img src="/assets/img/profile.jpg" width="200" height="200" align="left"></a>
 </figure>
 
 ## Why Astronomy?
