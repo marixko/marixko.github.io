@@ -8,13 +8,13 @@ comments: false
 
 ## Hello there! 
 
+<figure>
+    <a href="/assets/img/profile.jpg"><img src="/assets/img/profile.jpg" width="200" height="200" align="right"></a>
+</figure>
 
 I am Lilianne Nakazono, I am a grad student at University of São Paulo in Brazil. I have been working with massive astronomical databases applying statistics and computational methods in order to find new unclassified quasars. 
 I enjoy everything that involves data to work with! 
 
-<figure>
-    <a href="/assets/img/profile.jpg"><img src="/assets/img/profile.jpg" width="200" height="200" align="right"></a>
-</figure>
 
 ## Why Astronomy?
 
