@@ -20,7 +20,7 @@ I don't have a beautiful story from childhood as most astronomers do. However I 
 I started in Statistics at University of São Paulo, because at that time I still didn't know what I really wanted, but I knew that a degree in Statistics could be useful to me at any path I would choose later. 
 In 2012 I was in the middle of the Statistics bachelor's degree program when I started participating in a amateur astronomy club, where I had astronomy classes every saturday. That was crucial for me, I couldn't see myself doing anything else than Astronomy at that moment. Well, in 2013 I got my degree and in 2014 I started the Astronomy program. And here I am. 
 
-
+![workspace](https://github.com/marixko/marixko.github.io/blob/master/assets/image.png)
 [[https://github.com/marixko/marixko.github.io/blob/master/assets/img/note.jpg]]
 
 {% capture images %}
