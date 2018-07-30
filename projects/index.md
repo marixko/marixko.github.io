@@ -8,10 +8,10 @@ comments: false
 
 ## Ongoing
 
-* Master's program in Astronomy. Advisor: Claudia L. Mendes de Oliveira
+* Master's program in Astronomy. Title: Search for new bright quasars with S-PLUS. Advisor: Claudia L. Mendes de Oliveira
 
 ## Bachelor's degree
 
-* Statistics (2013) - Instituto de Matemática e Estatística of Universidade de São Paulo
 * Astronomy (2016) - Instituto de Astronomia, Geofísica e Ciências Atmosféricas of Universidade de São Paulo
+* Statistics (2013) - Instituto de Matemática e Estatística of Universidade de São Paulo
 
