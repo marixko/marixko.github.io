@@ -28,4 +28,3 @@ And here I am :)
     <figcaption>My workspace.</figcaption>
 </figure>
 
-<!---## And besides Astronomy... I like to ----!>
