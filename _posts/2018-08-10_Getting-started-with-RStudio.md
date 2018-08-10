@@ -9,7 +9,7 @@ tag:
 comments: true
 ---
 
-RStudio is a great IDE for the programming language R, useful for statistical computing and data visualization. It’s available for Windows, macOS, Ubuntu and Fedora and you can download it here [https://www.rstudio.com/products/rstudio/download/]
+RStudio is a great IDE for the programming language R, useful for statistical computing and data visualization. It’s available for Windows, macOS, Ubuntu and Fedora and you can download it <a href="https://www.rstudio.com/products/rstudio/download/">here</a>
 
 ## Advantages:
 * It has an  user-friendly interface, but you can also do code-based things at the same time
