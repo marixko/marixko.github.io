@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting started with RStudio"
 date:   2018-08-19
-excerpt: ""
+excerpt: "Tutorial"
 project: true
 tag:
 - R Tutorials
