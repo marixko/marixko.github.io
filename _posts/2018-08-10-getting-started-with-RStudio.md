@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting started with RStudio"
-date: 2012-05-22
+date: 2018-08-13
 excerpt: "Tutorial"
 tags: [R Tutorial, teaching]
 comments: true
