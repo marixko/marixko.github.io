@@ -1,11 +1,9 @@
 ---
 layout: post
-title:  "Getting started with RStudio"
-date:   2018-08-19
+title: "Testing Readability with a Bunch of Text"
+date: 2012-05-22
 excerpt: "Tutorial"
-project: true
-tag:
-- R Tutorials
+tags: [R Tutorial, teaching]
 comments: true
 ---
 
