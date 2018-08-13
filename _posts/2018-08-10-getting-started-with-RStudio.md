@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Testing Readability with a Bunch of Text"
+title: "Getting started with RStudio"
 date: 2012-05-22
 excerpt: "Tutorial"
 tags: [R Tutorial, teaching]
