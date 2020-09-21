@@ -32,8 +32,12 @@ We studied how to classify quasars using Principal Component Analysis on the ALH
 ## Academic Projects
 * [2019 - present] Editor of the <a href="http://www.splus.iag.usp.br/">S-PLUS website</a>
 * [2019] Designed the new layout for the <a href="http://www.splus.iag.usp.br/">S-PLUS website</a> and managed the development process. 
-* [2013] Final project of the Statistics program entitled "Evaluation of the risk factors for the occurence of early death after liver transplant". Advisors: Prof. Lúcia Pereira Barroso and Prof. Carmen Diva Saldiva Andre.
-* [2013] Final project of the Statistics program entitled "Natural breakage or human action of stones excavated from the archaeological site of Boqueirão da Pedra Furada". Advisor: Prof. Márcia D'elia Branco
+* [2013] Final project of the Statistics program entitled "Evaluation of the risk factors for the occurence of early death after liver transplant".
+
+Advisors: Prof. Lúcia Pereira Barroso and Prof. Carmen Diva Saldiva Andre.
+* [2013] Final project of the Statistics program entitled "Natural breakage or human action of stones excavated from the archaeological site of Boqueirão da Pedra Furada". 
+
+Advisor: Prof. Márcia D'elia Branco
 
 
 ## Teaching Assistant
