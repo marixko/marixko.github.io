@@ -6,7 +6,7 @@ date: 2018-07-29
 comments: false
 ---
 
-You can also access my <a href="http://lattes.cnpq.br/8135231533828484">Lattes</a> or my <a href="https://www.linkedin.com/in/marixko/">Linkedin</a>.
+You can also access my <a href="http://lattes.cnpq.br/8135231533828484">Lattes</a> or my <a href="https://www.linkedin.com/in/marixko/">Linkedin</a>. Last update: 21/09/2020
 
 ## Education
 
