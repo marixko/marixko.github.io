@@ -8,11 +8,11 @@ comments: false
 
 ## Hello there! 
 
-<div class = "about">
+<div class="about">
     <p class="intro">
         I am Lilianne Nakazono, I am a grad student at University of São Paulo in Brazil. I have been working with massive astronomical databases applying statistics and computational methods in order to find new unclassified quasars. 
         I enjoy everything that involves data to work with! </p>      
-    <img class="avatar" src="/assets/img/profile.jpg" width="100" alt="Lilianne" align="right">
+    <img class="avatar" src="/assets/img/profile.jpg" alt="Lilianne">
 </div>
 
 
