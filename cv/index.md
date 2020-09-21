@@ -19,6 +19,10 @@ Advisor: Claudia L. Mendes de Oliveira <br>
 
 ## Academic Projects
 
+## Teaching Assistant
+* [2016] Course: AGA0503 - Numerical methods in Astronomy
+* [2011] Course: MAE0212 - Introduction to Probability and Statistics II 
+
 ## Seminars and Workshops
 * [2020] Invited lecturer at IX La Plata International School (LAPIS) on Astronomy and Geophysics. The topic of my lecture was classification with supervised learning.
 * [2019] Speaker of the "Introduction to Machine Learning" workshop organized by PyLadies São Paulo. 
