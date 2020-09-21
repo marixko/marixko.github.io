@@ -16,8 +16,7 @@ Advisor: Claudia L. Mendes de Oliveira <br>
 * [2010 - 2013] B.Sc. in Statistics - Instituto de Matemática e Estatística, Universidade de São Paulo, Brazil. 
 
 ## Research Experience
-* [2018 - present] 
-* [2014 - 2017]
+to be completed soon!
 
 ## Academic Projects
 * [2019 - present] Editor of the S-PLUS website (http://www.splus.iag.usp.br/)
