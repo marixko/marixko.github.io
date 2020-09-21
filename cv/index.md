@@ -20,12 +20,26 @@ Advisor: Claudia L. Mendes de Oliveira <br>
 ## Academic Projects
 
 ## Seminars and Workshops
+* [2020] Invited lecturer at IX La Plata International School (LAPIS) on Astronomy and Geophysics. The topic of my lecture was classification with supervised learning.
+* [2019] Speaker of the "Introduction to Machine Learning" workshop organized by PyLadies São Paulo. 
+* [2019] Speaker at Congresso FEI de Inovação with a talk entitled "A universe called Machine Learning"
+* [2018] Seminar at XLIII annual meeting of Sociedade Astronômica Brasileira entitled "Classification and photo-zs of quasars using machine learning in photometric observations from S-PLUS"
 
-## Volunteer Projects
+## Volunteering and Outreach
+* [2019] Invited scientist at the outreach event called "Ask to a scientist" organized by Via Saber.
+* [2019] Visitor guide at Observatório Abrahão de Moraes, São Paulo. 
+* [2016] Member of AIESEC USP, focused in the exchange professional program in start-ups. 
 
 ## Awards
 
+* [2016] Prize of Excellence (team member of University of Sao Paulo) - Asia Supercomputer Community (ASC16)
+* [2015] Best undergraduate research entitled "Separation of stars and quasars in multispectral images", advised by Prof. Nina Hirata and Prof. Claudia Mendes de Oliveira
+
+
 ## Technical Skills
+
+* Programming languages: Python, R, C, Fortran, SQL
+* Astronomical softwares: TOPCAT, Aladin, IRAF
 
 ## Languages
 
