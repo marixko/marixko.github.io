@@ -19,7 +19,7 @@ Here you can find my <a href="https://marixko.github.io/cv/">CV</a> and a <a hre
 
 
 ## Get to really know me
-In my spare time I love playing videogames and this what I do almost every night. 
+In my spare time I love playing videogames and boardgames in general. 
 I am always reading books, specially japanese literature. Sorry, sci-fi is not my favorite genre! I am currently learning how to play shamisen (jiuta), the 3-stringed traditional japanese instrument. By the way, this picture in the background of the Milky Way was taken by me. 
 
 <figure>
