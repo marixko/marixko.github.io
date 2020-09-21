@@ -20,8 +20,11 @@ Advisor: Claudia L. Mendes de Oliveira <br>
 * [2014 - 2017]
 
 ## Academic Projects
-* [2013]
-* [2013]
+* [2019 - present] Editor of the S-PLUS website (http://www.splus.iag.usp.br/)
+* [2019] Designed the new layout for the S-PLUS website (http://www.splus.iag.usp.br/) and managed the development. 
+* [2013] Final project of the Statistics program entitled "Evaluation of the risk factors for the occurence of early death after liver transplant". Advisors: Prof. Lúcia Pereira Barroso and Prof. Carmen Diva Saldiva Andre.
+* [2013] Final project of the Statistics program entitled "Natural breakage or human action of stones excavated from the archaeological site of Boqueirão da Pedra Furada". Advisor: Prof. Márcia D'elia Branco
+
 
 ## Teaching Assistant
 * [2016] Course: AGA0503 - Numerical methods in Astronomy
