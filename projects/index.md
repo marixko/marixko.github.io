@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Curriculum Vitae
-tags: [cv]
+title: List of publications
+tags: [papers]
 date: 2018-07-29
 comments: false
 ---
