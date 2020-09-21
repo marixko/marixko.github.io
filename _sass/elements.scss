@@ -206,3 +206,16 @@ kbd {
     font-weight: 300;
     margin-bottom: 10px;
 }
+
+// My edits
+.about {
+    display: flex;
+}
+
+.intro {
+    flex: 1 1 auto
+}
+
+.avatar {
+    flex: 1 1 60%;
+}
