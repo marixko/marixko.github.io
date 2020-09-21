@@ -6,7 +6,7 @@ date: 2018-07-29
 comments: false
 ---
 
-You can also access my <a href="http://lattes.cnpq.br/8135231533828484">lattes</a> or my <a href="https://www.linkedin.com/in/marixko/">linkedin</a>.
+You can also access my <a href="http://lattes.cnpq.br/8135231533828484">Lattes</a> or my <a href="https://www.linkedin.com/in/marixko/">Linkedin</a>.
 
 ## Education
 
@@ -16,11 +16,19 @@ Advisor: Claudia L. Mendes de Oliveira <br>
 * [2010 - 2013] B.Sc. in Statistics - Instituto de Matemática e Estatística, Universidade de São Paulo, Brazil. 
 
 ## Research Experience
-to be completed soon!
+* [2018 - present] Ph.D. thesis <br>
+Advisor: Prof. Claudia Mendes de Oliveia
+Evaluated a machine learning structure to classify stas, quasars, and galaxies on the S-PLUS photometric dataset. A paper about this project is being submitted to MNRAS and a python package is under development. In parallel, another structure is being developed to estimate accurate distances for all sources being classified as quasars. Spectroscopic observations of the quasar candidates are under analysis. 
+
+* [2014 - 2016] Undergraduate research <br>
+Advisor: Prof Nina Hirata | Co-advisor: Pof. Claudia Mendes de Oliveira
+We studied how to classify quasars using Principal Component Analysis on the ALHAMBRA photometric dataset. 
+
+
 
 ## Academic Projects
-* [2019 - present] Editor of the S-PLUS website (http://www.splus.iag.usp.br/)
-* [2019] Designed the new layout for the S-PLUS website (http://www.splus.iag.usp.br/) and managed the development. 
+* [2019 - present] Editor of the <a href="http://www.splus.iag.usp.br/">S-PLUS website</a>
+* [2019] Designed the new layout for the <a href="http://www.splus.iag.usp.br/">S-PLUS website</a> and managed the development process. 
 * [2013] Final project of the Statistics program entitled "Evaluation of the risk factors for the occurence of early death after liver transplant". Advisors: Prof. Lúcia Pereira Barroso and Prof. Carmen Diva Saldiva Andre.
 * [2013] Final project of the Statistics program entitled "Natural breakage or human action of stones excavated from the archaeological site of Boqueirão da Pedra Furada". Advisor: Prof. Márcia D'elia Branco
 
