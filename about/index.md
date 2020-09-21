@@ -24,6 +24,5 @@ I am always reading books, specially japanese literature. Sorry, sci-fi is not m
 
 <figure>
     <a href="/assets/img/note.jpg"><img src="/assets/img/note.jpg"></a>
-    <figcaption>My workspace.</figcaption>
 </figure>
 
