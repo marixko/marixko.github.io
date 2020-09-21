@@ -19,7 +19,7 @@ You can also access my <a href="http://lattes.cnpq.br/8135231533828484">Lattes</
 
 Advisor: Prof. Claudia Mendes de Oliveia
 
-Evaluated a machine learning structure to classify stas, quasars, and galaxies on the S-PLUS photometric dataset. A paper about this project is being submitted to MNRAS and a python package is under development. In parallel, another structure is being developed to estimate accurate distances for all sources being classified as quasars. Spectroscopic observations of the quasar candidates are under analysis. 
+Evaluated machine learning structures to classify stas, quasars, and galaxies using the S-PLUS photometric dataset. A paper about this project is under revision by MNRAS and a python package is under development. In parallel, other structures are being evaluated to estimate accurate distances for all sources being classified as quasars. Spectroscopic observations of the quasar candidates are under analysis. 
 
 * [2014 - 2016] Undergraduate research
 
