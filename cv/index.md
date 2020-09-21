@@ -16,7 +16,7 @@ Advisor: Claudia L. Mendes de Oliveira <br>
 * [2010 - 2013] B.Sc. in Statistics - Instituto de Matemática e Estatística, Universidade de São Paulo, Brazil. 
 
 ## Research Experience
-* [2018 - present]
+* [2018 - present] 
 * [2014 - 2017]
 
 ## Academic Projects
