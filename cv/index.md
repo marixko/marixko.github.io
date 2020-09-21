@@ -11,17 +11,20 @@ You can also access my <a href="http://lattes.cnpq.br/8135231533828484">Lattes</
 ## Education
 
 * [2018 - present] Ph.D. in Astronomy - Instituto de Astronomia, Geofísica e Ciências Atmosféricas, Universidade de São Paulo, Brazil. 
-Advisor: Claudia L. Mendes de Oliveira <br>
 * [2014 - 2016] B.Sc. in Astronomy - Instituto de Astronomia, Geofísica e Ciências Atmosféricas, Universidade de São Paulo, Brazil.
 * [2010 - 2013] B.Sc. in Statistics - Instituto de Matemática e Estatística, Universidade de São Paulo, Brazil. 
 
 ## Research Experience
-* [2018 - present] Ph.D. thesis <br>
+* [2018 - present] Ph.D. thesis 
+
 Advisor: Prof. Claudia Mendes de Oliveia
+
 Evaluated a machine learning structure to classify stas, quasars, and galaxies on the S-PLUS photometric dataset. A paper about this project is being submitted to MNRAS and a python package is under development. In parallel, another structure is being developed to estimate accurate distances for all sources being classified as quasars. Spectroscopic observations of the quasar candidates are under analysis. 
 
-* [2014 - 2016] Undergraduate research <br>
+* [2014 - 2016] Undergraduate research
+
 Advisor: Prof Nina Hirata | Co-advisor: Pof. Claudia Mendes de Oliveira
+
 We studied how to classify quasars using Principal Component Analysis on the ALHAMBRA photometric dataset. 
 
 
