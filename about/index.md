@@ -11,8 +11,8 @@ comments: false
 <div class="about">
     <p class="intro">
         I am Lilianne Nakazono, I am currently a Ph.D. candidate in Astronomy at Instituto de Astronomia, Geofísica e Ciências Atmosféricas, University of São Paulo. I am part of the S-PLUS collaboration, which is an ongoing all-sky survey that will cover about 9300 squared degrees of the Southern Sky. In my current project I aim to find and to characterize new quasares in this photometric dataset. My main research interests involves the application of Statistical Learning/Machine Learning in the Extragalactic Astronomy context. Well, in other words: I enjoy working with big data :) 
-    <br>
-        Here you can find my <a href="https://marixko.github.io/projects/">CV</a> and a list of publications.
+    <br><br>
+        Here you can find my <a href="https://marixko.github.io/cv/">CV</a> and a <a href="https://marixko.github.io/projects/">list of publications</a>.
     </p>      
     <img class="avatar" src="/assets/img/profile.jpg" alt="Lilianne">
 </div>
