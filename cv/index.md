@@ -8,7 +8,7 @@ comments: false
 
 You can also access my <a href="http://lattes.cnpq.br/8135231533828484">lattes</a> or my <a href="https://www.linkedin.com/in/marixko/">linkedin</a>.
 
-# Education
+## Education
 
 * [2018 - present] Ph.D. in Astronomy - Instituto de Astronomia, Geofísica e Ciências Atmosféricas, Universidade de São Paulo, Brazil. 
 Advisor: Claudia L. Mendes de Oliveira <br>
