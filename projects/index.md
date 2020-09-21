@@ -6,23 +6,11 @@ date: 2018-07-29
 comments: false
 ---
 
-## Ongoing
 
-* Master's program in Astronomy. Title: Search for new bright quasars with S-PLUS. Advisor: Claudia L. Mendes de Oliveira <br>
-You can also access my lattes page <a href="http://lattes.cnpq.br/8135231533828484">here</a>
+3. *An Extremely Bright QSO at z=2.89*. Sarik Jeram, Anthony Gonzalez, Stephen Eikenberry, Daniel Stern, Claudia Lucia Mendes de Oliveira, Lilianne M. I. Nakazono, Kendall Ackley (2020). AJ, 899, 76.
 
-## Bachelor's degree
+2. *Assessing the photometric redshift precision of the S-PLUS survey: the Stripe-82 as a test-case*. Molino et al. (2019). Accepted to MNAS.
 
-* Astronomy (2016) - Instituto de Astronomia, Geofísica e Ciências Atmosféricas of Universidade de São Paulo
-* Statistics (2013) - Instituto de Matemática e Estatística of Universidade de São Paulo
+1. *The Southern Photometric Local Universe Survey (S-PLUS): improved SEDs, morphologies and redshifts with 12 optical filters*. C. Mendes de Oliveira et al. (2019). MNRAS, 489, 241
 
-## Languages
-
-* Portuguese (BR): Native
-* English: Fluent
-* Spanish: Basic
-* Japanese: Basic
-
-## Events/Congress/Meetings
-
-
+4. *On the discovery of stars, quasars, and galaxies in the Southern Hemisphere with S-PLUS*. Lilianne M. I. Nakazono et al. (2020). Submitted to MNRAS.
