@@ -211,6 +211,7 @@ kbd {
 .about {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .intro {
