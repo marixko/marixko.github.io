@@ -15,8 +15,7 @@ comments: false
     <img class="avatar" src="/assets/img/lilianne.jpg" alt="Lilianne">
 </div>
 
-    <br><br>
-        Here you can find my <a href="https://marixko.github.io/cv/">CV</a> and a <a href="https://marixko.github.io/projects/">list of publications</a>.
+Here you can find my <a href="https://marixko.github.io/cv/">CV</a> and a <a href="https://marixko.github.io/projects/">list of publications</a>.
 
 
 ## Why Astronomy?
