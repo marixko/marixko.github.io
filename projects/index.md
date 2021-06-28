@@ -6,7 +6,7 @@ date: 2018-07-29
 comments: false
 ---
 
-1. <b>On the discovery of stars, quasars, and galaxies in the Southern Hemisphere with S-PLUS</b>. Lilianne M. I. Nakazono et al. (2020). Submitted to MNRAS.
+1. <b>On the discovery of stars, quasars, and galaxies in the Southern Hemisphere with S-PLUS</b>. Lilianne Nakazono et al. (2021). Accepted to MNRAS. 
 
 2. <b>An Extremely Bright QSO at z=2.89</b>. Sarik Jeram, Anthony Gonzalez, Stephen Eikenberry, Daniel Stern, Claudia Lucia Mendes de Oliveira, Lilianne M. I. Nakazono, Kendall Ackley (2020). AJ, 899, 76.
 
