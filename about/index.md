@@ -22,14 +22,14 @@ Here you can find my <a href="https://marixko.github.io/cv/">CV</a> and a <a hre
 ## My main source of endorphins
 
 <figure>
-    <a href="/assets/img/cat.jpeg"><img src="/assets/img/cat.jpeg"></a>
+    <a href="/assets/img/cat.jpeg"><img src="/assets/img/cat.jpeg" width="200"></a>
 </figure>
 
 <figure>
-    <a href="/assets/img/momo.jpeg"><img src="/assets/img/momo.jpeg"></a>
+    <a href="/assets/img/momo.jpeg"><img src="/assets/img/momo.jpeg" width="200"></a>
 </figure>
 
 <figure>
-    <a href="/assets/img/mussa.jpeg"><img src="/assets/img/mussa.jpeg"></a>
+    <a href="/assets/img/mussa.jpeg"><img src="/assets/img/mussa.jpeg" width="200"></a>
 </figure>
 
