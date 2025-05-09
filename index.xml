@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lilianne Nakazono</title>
+    <title>Lilianne Nakazono, PhD</title>
     <link>https://marixko.github.io/</link>
-    <description>Recent content on Lilianne Nakazono</description>
+    <description>Recent content on Lilianne Nakazono, PhD</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; {year}</copyright>
@@ -11,6 +11,43 @@
     
 	    <atom:link href="https://marixko.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Recent &amp; Upcoming Talks</title>
+      <link>https://marixko.github.io/talk/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      
+      <guid>https://marixko.github.io/talk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>https://marixko.github.io/publication/</link>
+      <pubDate>Tue, 09 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://marixko.github.io/publication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Courses, tutorials and workshops</title>
+      <link>https://marixko.github.io/courses/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      
+      <guid>https://marixko.github.io/courses/</guid>
+      <description>&lt;p&gt;Soon! :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>https://marixko.github.io/post/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://marixko.github.io/post/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Slides</title>
@@ -27,43 +64,6 @@
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>https://marixko.github.io/project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Courses, tutorials and workshops</title>
-      <link>https://marixko.github.io/courses/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://marixko.github.io/courses/</guid>
-      <description>&lt;p&gt;Soon! :)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>https://marixko.github.io/post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://marixko.github.io/post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Publications</title>
-      <link>https://marixko.github.io/publication/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://marixko.github.io/publication/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Recent &amp; Upcoming Talks</title>
-      <link>https://marixko.github.io/talk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://marixko.github.io/talk/</guid>
       <description></description>
     </item>
     

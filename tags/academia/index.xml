@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academia on Lilianne Nakazono</title>
+    <title>Academia on Lilianne Nakazono, PhD</title>
     <link>https://marixko.github.io/tags/academia/</link>
-    <description>Recent content in Academia on Lilianne Nakazono</description>
+    <description>Recent content in Academia on Lilianne Nakazono, PhD</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; {year}</copyright>
@@ -36,7 +36,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img alt=&#34;Screenshot&#34; src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34; alt=&#34;Screenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -86,7 +86,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-1950s_hu8090154866876748264.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-1950s_hu_3df16cb4e000756d.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -99,7 +99,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-apogee_hu3736725048932955682.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-apogee_hu_53f9a77eacf7101.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -112,7 +112,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-coffee-playfair_hu5975374466282837123.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-coffee-playfair_hu_c0b733f1caf3eed7.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -125,7 +125,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-dark_hu1820333524410461739.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-dark_hu_ba52b5681ad91cc0.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -138,7 +138,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-default_hu10460097020403530355.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-default_hu_ecc6375b0db16a75.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -151,7 +151,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-forest_hu14011521461444474163.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-forest_hu_30553c23ebdd8598.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -164,7 +164,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-ocean_hu14013329940897655413.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-ocean_hu_f6427f7c95185d0f.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -177,7 +177,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-strawberry_hu6527816099320964396.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-strawberry_hu_7fffc548209def07.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
 
@@ -230,7 +230,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img alt=&#34;Screenshot&#34; src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34; alt=&#34;Screenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -280,7 +280,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-1950s_hu8090154866876748264.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-1950s_hu_3df16cb4e000756d.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -293,7 +293,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-apogee_hu3736725048932955682.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-apogee_hu_53f9a77eacf7101.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -306,7 +306,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-coffee-playfair_hu5975374466282837123.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-coffee-playfair_hu_c0b733f1caf3eed7.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -319,7 +319,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-dark_hu1820333524410461739.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-dark_hu_ba52b5681ad91cc0.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -332,7 +332,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-default_hu10460097020403530355.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-default_hu_ecc6375b0db16a75.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -345,7 +345,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-forest_hu14011521461444474163.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-forest_hu_30553c23ebdd8598.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -358,7 +358,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-ocean_hu14013329940897655413.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-ocean_hu_f6427f7c95185d0f.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -371,7 +371,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-strawberry_hu6527816099320964396.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-strawberry_hu_7fffc548209def07.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
 

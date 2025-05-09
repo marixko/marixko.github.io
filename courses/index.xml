@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Courses, tutorials and workshops on Lilianne Nakazono</title>
+    <title>Courses, tutorials and workshops on Lilianne Nakazono, PhD</title>
     <link>https://marixko.github.io/courses/</link>
-    <description>Recent content in Courses, tutorials and workshops on Lilianne Nakazono</description>
+    <description>Recent content in Courses, tutorials and workshops on Lilianne Nakazono, PhD</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; {year}</copyright>
+    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0100</lastBuildDate>
     
 	    <atom:link href="https://marixko.github.io/courses/index.xml" rel="self" type="application/rss+xml" />
     

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Lilianne Nakazono</title>
+    <title>Posts on Lilianne Nakazono, PhD</title>
     <link>https://marixko.github.io/post/</link>
-    <description>Recent content in Posts on Lilianne Nakazono</description>
+    <description>Recent content in Posts on Lilianne Nakazono, PhD</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>Copyright &amp;copy; {year}</copyright>
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://marixko.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,14 +20,14 @@
       <guid>https://marixko.github.io/post/jupyter/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; IPython.core.display &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Image
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Image(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;png&#34; src=&#34;https://marixko.github.io/post/jupyter/academia_0_0.png&#34;&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://marixko.github.io/post/jupyter/academia_0_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Welcome to academia!&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;Welcome to academia!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;install-python-and-jupyter&#34;&gt;Install Python and Jupyter&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.anaconda.com/distribution/#download-section&#34;&gt;Install Anaconda&lt;/a&gt; which includes Python 3 and Jupyter notebook.&lt;/p&gt;
 &lt;p&gt;Otherwise, for advanced users, install Jupyter notebook with &lt;code&gt;pip3 install jupyter&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;create-a-new-blog-post-as-usualhttpssourcethemescomacademicdocsmanaging-contentcreate-a-blog-post&#34;&gt;Create a new blog post &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34;&gt;as usual&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;create-a-new-blog-post-as-usual&#34;&gt;Create a new blog post &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34;&gt;as usual&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Run the following commands in your Terminal, substituting &lt;code&gt;&amp;lt;MY_WEBSITE_FOLDER&amp;gt;&lt;/code&gt; and &lt;code&gt;my-post&lt;/code&gt; with the file path to your academia website folder and a name for your blog post (without spaces), respectively:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new  --kind post post/my-post
@@ -73,7 +74,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img alt=&#34;Screenshot&#34; src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34; alt=&#34;Screenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -123,7 +124,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-1950s_hu8090154866876748264.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-1950s_hu_3df16cb4e000756d.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -136,7 +137,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-apogee_hu3736725048932955682.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-apogee_hu_53f9a77eacf7101.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -149,7 +150,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-coffee-playfair_hu5975374466282837123.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-coffee-playfair_hu_c0b733f1caf3eed7.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -162,7 +163,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-dark_hu1820333524410461739.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-dark_hu_ba52b5681ad91cc0.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -175,7 +176,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-default_hu10460097020403530355.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-default_hu_ecc6375b0db16a75.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -188,7 +189,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-forest_hu14011521461444474163.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-forest_hu_30553c23ebdd8598.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -201,7 +202,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-ocean_hu14013329940897655413.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-ocean_hu_f6427f7c95185d0f.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -214,7 +215,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/snail/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-strawberry_hu6527816099320964396.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/snail/gallery/theme-strawberry_hu_7fffc548209def07.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
 
@@ -267,7 +268,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img alt=&#34;Screenshot&#34; src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34; alt=&#34;Screenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -317,7 +318,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-1950s_hu8090154866876748264.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-1950s_hu_3df16cb4e000756d.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -330,7 +331,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-apogee_hu3736725048932955682.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-apogee_hu_53f9a77eacf7101.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -343,7 +344,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-coffee-playfair_hu5975374466282837123.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-coffee-playfair_hu_c0b733f1caf3eed7.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -356,7 +357,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-dark_hu1820333524410461739.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-dark_hu_ba52b5681ad91cc0.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -369,7 +370,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-default_hu10460097020403530355.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-default_hu_ecc6375b0db16a75.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -382,7 +383,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-forest_hu14011521461444474163.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-forest_hu_30553c23ebdd8598.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -395,7 +396,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-ocean_hu14013329940897655413.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-ocean_hu_f6427f7c95185d0f.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
     
@@ -408,7 +409,7 @@
       
     
   &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://marixko.github.io/post/getting-started/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
-  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-strawberry_hu6527816099320964396.png&#34; alt=&#34;&#34;&gt;
+  &lt;img src=&#34;https://marixko.github.io/post/getting-started/gallery/theme-strawberry_hu_7fffc548209def07.png&#34; alt=&#34;&#34;&gt;
   &lt;/a&gt;
   
 
