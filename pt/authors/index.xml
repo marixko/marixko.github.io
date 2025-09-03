@@ -1,0 +1,40 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>/pt/authors/</loc>
+		<lastmod>2025-09-02</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>/pt/authors/admin/</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/almeida-fernandes-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/herpich-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/jeram-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/lima-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/mendes-de-oliveira-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/molino-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/nakazono-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/pessi-et-al./</loc>
+	</url>
+	<url>
+		<loc>/pt/authors/robert-ford/</loc>
+	</url>
+</urlset>

@@ -1,0 +1,15 @@
+{
+  "mensagem": "Bem-vindo ao site Academia em Português!",
+  "navegacao": [
+    {"titulo": "Início", "url": "/pt/"},
+    {"titulo": "Posts", "url": "/pt/#posts"},
+    {"titulo": "Projetos", "url": "/pt/#projects"},
+    {"titulo": "Publicações", "url": "/pt/#publications"},
+    {"titulo": "Cursos", "url": "/pt/courses/"},
+    {"titulo": "Contato", "url": "/pt/#contact"}
+  ],
+  "meta": {
+    "descricao": "Site Academia traduzido para português.",
+    "data_atualizacao": "2025-09-02"
+  }
+}

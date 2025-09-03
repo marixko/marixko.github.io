@@ -4,6 +4,15 @@
 <head>
 
   <meta charset="utf-8">
+  <script>
+    // Detect browser language and redirect to /pt/ if Portuguese
+    (function() {
+      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (lang.startsWith('pt') && window.location.pathname.indexOf('/pt/') !== 0) {
+        window.location.href = '/pt/';
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academia 4.3.1">
@@ -183,6 +192,12 @@
       
       
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-auto d-flex align-items-center" style="position: absolute; right: 20px; top: 10px;">
+          <div class="btn-group" role="group" aria-label="Language switcher">
+            <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/pt/'">Português</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.location.href='/'">English</button>
+          </div>
+        </li>
         
 
         
@@ -287,9 +302,6 @@
         
         
 
-        <li class="nav-item">
-          <a class="nav-link " href="/courses/"><span>Courses</span></a>
-        </li>
 
         
         
@@ -315,7 +327,12 @@
           
           
         
-
+        <li class="nav-item">
+          <a class="nav-link " href="/teaching.html"><span>Teaching</span></a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/blog/"><span>Blog</span></a>
+        </li>
         <li class="nav-item">
           <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
         </li>
@@ -527,6 +544,8 @@
       
       
       
+        <li class="nav-item">
+        </li>
       
       
       
