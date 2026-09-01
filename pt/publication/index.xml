@@ -7,14 +7,5 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.8</priority>
 	</url>
-	<url>
-		<loc>/pt/publication/conference-paper/</loc>
-	</url>
-	<url>
-		<loc>/pt/publication/journal-article/</loc>
-	</url>
-	<url>
-		<loc>/pt/publication/preprint/</loc>
-	</url>
 	<!-- Adicione mais tipos de publicações conforme necessário -->
 </urlset>

@@ -7,14 +7,5 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.8</priority>
 	</url>
-	<url>
-		<loc>/pt/blog/example/</loc>
-	</url>
-	<url>
-		<loc>/pt/blog/example.1/</loc>
-	</url>
-	<url>
-		<loc>/pt/blog/example.2/</loc>
-	</url>
 	<!-- Adicione mais cursos conforme necessário -->
 </urlset>
