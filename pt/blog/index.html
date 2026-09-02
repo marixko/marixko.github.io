@@ -14,6 +14,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
   <link rel="stylesheet" href="/css/academia.min.dbe83bbf6477781bec4f66e695a12d6d.css">
+  <style>
+    .blog-featured{margin-bottom:2.25rem;padding-bottom:2rem;border-bottom:1px solid rgba(128,128,128,.25);}
+    .blog-featured-media img{width:100%;max-width:100%;height:auto;border-radius:4px;display:block;}
+    .blog-featured-badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:hsl(339,90%,68%);margin:.9rem 0 .5rem;}
+    .blog-featured-body h2{margin-top:0;font-size:1.55rem;overflow-wrap:break-word;}
+    .blog-featured-body h2 a{color:inherit;}
+    @media (min-width:768px){
+      .blog-featured{display:flex;gap:1.75rem;align-items:flex-start;}
+      .blog-featured-media{flex:0 0 40%;max-width:40%;}
+      .blog-featured-media img{max-height:280px;object-fit:cover;}
+      .blog-featured-body{flex:1 1 auto;min-width:0;}
+      .blog-featured-badge{margin-top:0;}
+    }
+  </style>
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
   <link rel="canonical" href="https://marixko.github.io/pt/blog/">
@@ -57,30 +71,33 @@
     <div class="section-heading"><h1 itemprop="name">Blog</h1></div>
   </div>
   <div class="universal-wrapper">
-    <div class="row">
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-          <a href="/pt/blog/seja-meu-aluno/"><img src="/blog/seja-meu-aluno/featured.jpg" class="article-banner" itemprop="image" alt=""></a>
-          <div class="card-body">
-            <h3 class="article-title mb-1 mt-0" itemprop="name"><a href="/pt/blog/seja-meu-aluno/" itemprop="url">O que devo saber antes de te procurar para ser seu orientando/a?</a></h3>
-            <div class="article-metadata">
-              <span itemprop="author name"><a href="/pt/authors/admin/">Lilianne Nakazono</a></span>
-              <span class="article-date"><time>2 de set de 2026</time></span>
-              <span class="middot-divider"></span>
-              <span class="article-reading-time">2 min de leitura</span>
-              <span class="js-view-count" data-slug="blog-seja-meu-aluno" data-label="visualizações" hidden></span>
-            </div>
-            <div class="article-style" itemprop="articleBody">Um guia rápido para quem tem interesse em ser meu aluno ou aluna.</div>
-          </div>
-        </div>
+    <article class="blog-featured" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="blog-featured-media">
+        <a href="/pt/blog/seja-meu-aluno/"><img src="/blog/seja-meu-aluno/featured.jpg" itemprop="image" alt=""></a>
       </div>
+      <div class="blog-featured-body">
+        <span class="blog-featured-badge"><i class="fas fa-star" aria-hidden="true"></i> Destaque</span>
+        <h2 class="article-title" itemprop="name">
+          <a href="/pt/blog/seja-meu-aluno/" itemprop="url">O que devo saber antes de te procurar para ser seu orientando/a?</a>
+        </h2>
+        <div class="article-metadata">
+          <span itemprop="author name"><a href="/pt/authors/admin/">Lilianne Nakazono</a></span>
+          <span class="middot-divider"></span>
+          <span class="article-date"><time>2 de set de 2026</time></span>
+          <span class="middot-divider"></span>
+          <span class="article-reading-time">2 min de leitura</span>
+          <span class="js-view-count" data-slug="blog-seja-meu-aluno" data-label="visualizações" hidden></span>
+        </div>
+        <div class="article-style" itemprop="articleBody">Um guia rápido para quem tem interesse em ser meu aluno ou aluna.</div>
+      </div>
+    </article>
 
-
-
-
-
+    <div class="row">
+      <!-- Mais posts: adicione cada um como
+           <div class="col-lg-4 col-md-6 mb-4"><div class="card-simple" ...>...</div></div> -->
     </div>
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

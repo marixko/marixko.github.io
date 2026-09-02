@@ -85,6 +85,20 @@
   
   
   <link rel="stylesheet" href="/css/academia.min.dbe83bbf6477781bec4f66e695a12d6d.css">
+  <style>
+    .blog-featured{margin-bottom:2.25rem;padding-bottom:2rem;border-bottom:1px solid rgba(128,128,128,.25);}
+    .blog-featured-media img{width:100%;max-width:100%;height:auto;border-radius:4px;display:block;}
+    .blog-featured-badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:hsl(339,90%,68%);margin:.9rem 0 .5rem;}
+    .blog-featured-body h2{margin-top:0;font-size:1.55rem;overflow-wrap:break-word;}
+    .blog-featured-body h2 a{color:inherit;}
+    @media (min-width:768px){
+      .blog-featured{display:flex;gap:1.75rem;align-items:flex-start;}
+      .blog-featured-media{flex:0 0 40%;max-width:40%;}
+      .blog-featured-media img{max-height:280px;object-fit:cover;}
+      .blog-featured-body{flex:1 1 auto;min-width:0;}
+      .blog-featured-badge{margin-top:0;}
+    }
+  </style>
 
   
 
@@ -413,42 +427,34 @@
 </div>
 
 <div class="universal-wrapper">
-  <div class="row">
 
-    <div class="col-lg-4 col-md-6 mb-4">
-      <div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-        <a href="/blog/seja-meu-aluno/"><img src="/blog/seja-meu-aluno/featured.jpg" class="article-banner" itemprop="image" alt=""></a>
-        <div class="card-body">
-          <h3 class="article-title mb-1 mt-0" itemprop="name">
-            <a href="/blog/seja-meu-aluno/" itemprop="url">What should I know before reaching out to be your student?</a>
-          </h3>
-          <div class="article-metadata">
-            <div><span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Lilianne Nakazono</a></span></div>
-            <span class="article-date"><time>Sep 2, 2026</time></span>
-            <span class="middot-divider"></span>
-            <span class="article-reading-time">2 min read</span>
-            <span class="js-view-count" data-slug="blog-seja-meu-aluno" data-label="views" hidden></span>
-          </div>
-          <div class="article-style" itemprop="articleBody">
-            A quick guide for anyone interested in being my student.
-          </div>
-        </div>
+  <article class="blog-featured" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="blog-featured-media">
+      <a href="/blog/seja-meu-aluno/"><img src="/blog/seja-meu-aluno/featured.jpg" itemprop="image" alt=""></a>
+    </div>
+    <div class="blog-featured-body">
+      <span class="blog-featured-badge"><i class="fas fa-star" aria-hidden="true"></i> Featured</span>
+      <h2 class="article-title" itemprop="name">
+        <a href="/blog/seja-meu-aluno/" itemprop="url">What should I know before reaching out to be your student?</a>
+      </h2>
+      <div class="article-metadata">
+        <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Lilianne Nakazono</a></span>
+        <span class="middot-divider"></span>
+        <span class="article-date"><time>Sep 2, 2026</time></span>
+        <span class="middot-divider"></span>
+        <span class="article-reading-time">2 min read</span>
+        <span class="js-view-count" data-slug="blog-seja-meu-aluno" data-label="views" hidden></span>
+      </div>
+      <div class="article-style" itemprop="articleBody">
+        A quick guide for anyone interested in being my student.
       </div>
     </div>
+  </article>
 
-
-
-   
-
-
-
+  <div class="row">
+    <!-- More posts: add each as a
+         <div class="col-lg-4 col-md-6 mb-4"><div class="card-simple" ...>...</div></div> -->
   </div>
-
-
-  
-  
-
-  
 
 </div>
 

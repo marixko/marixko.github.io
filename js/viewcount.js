@@ -1,6 +1,7 @@
 /* Lightweight page-view counter via counterapi.dev (v2).
- * Requires a free workspace registered at https://counterapi.dev
- * (slug set in WORKSPACE below). Public counters, no API key needed.
+ * The workspace (WORKSPACE below) and each counter are auto-created on the
+ * first /up call — no signup or API key needed for public counters.
+ * Optionally claim the workspace at https://counterapi.dev for a dashboard.
  * Elements: <span class="js-view-count" data-slug="..." [data-increment]
  *                 data-label="views"></span>  (start hidden)
  */
@@ -22,7 +23,8 @@
     var slug = el.getAttribute("data-slug");
     if (!slug) return;
     var increment = el.hasAttribute("data-increment");
-    var url = BASE + encodeURIComponent(slug) + (increment ? "/up" : "");
+    var url = BASE + encodeURIComponent(slug) + (increment ? "/up" : "") +
+      "?_=" + Date.now();
     fetch(url, { headers: { Accept: "application/json" } })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
