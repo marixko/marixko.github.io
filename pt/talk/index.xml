@@ -1,20 +1,24 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>/pt/talk/</loc>
-		<lastmod>2025-09-02</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	<url>
-		<loc>/pt/talk/coding/</loc>
-	</url>
-	<url>
-		<loc>/pt/talk/qualitative/</loc>
-	</url>
-	<url>
-		<loc>/pt/talk/synthesizing/</loc>
-	</url>
-	<!-- Adicione mais palestras conforme necessário -->
-</urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Palestras recentes e futuras &#183; Lilianne Nakazono, PhD</title>
+    <link>https://marixko.github.io/pt/talk/</link>
+    <description>Palestras recentes e futuras de Lilianne Nakazono</description>
+    <language>pt-br</language>
+    <atom:link href="https://marixko.github.io/pt/talk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cosmology with Galaxys and Quasars in narrow-band large-sky surveys</title>
+      <link>https://marixko.github.io/pt/talk/12-sep-26/</link>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://marixko.github.io/pt/talk/12-sep-26/</guid>
+      <description>Cosmic Rhythms &amp;mdash; CBPF, Rio de Janeiro. 12 de setembro de 2026.</description>
+    </item>
+    <item>
+      <title>Active Galactic Nuclei na era do LSST</title>
+      <link>https://marixko.github.io/pt/talk/16-04-26/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://marixko.github.io/pt/talk/16-04-26/</guid>
+      <description>IAG, S&#227;o Paulo. 16 de abril de 2026.</description>
+    </item>
+  </channel>
+</rss>
