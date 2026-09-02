@@ -29,10 +29,10 @@
   
     
   
-  <meta name="description" content="An example talk using academia&#39;s Markdown slides feature.">
+  <meta name="description" content="We assess whether tabular foundation models can be used as off-the-shelf probabilistic photometric-redshift estimators for quasars in the 12-band S-PLUS DR6 survey, where colour-redshift degeneracies produce multi-modal posteriors and spectroscopic training sets are shifted relative to the photometric population. TabPFN 2.5, RealTabPFN 2.5, and TabICL are benchmarked against eight task-specific baselines, including linear conditional Gaussians, FlexZBoost, mixture-density networks, normalising flows, random forests, and gradient-boosted trees, with training sets from 500 to 121,626 quasars, using both density and point-prediction metrics, together with importance-weighted scores that approximate deployment on the photometric target sample. TabPFN 2.5 is best or statistically tied for best on all metrics except the unweighted CDE loss, on which the normalising flow is statistically tied and attains the lowest mean value; its largest gains occur for small training sets and in difficult regimes (very bright and faint sources, high redshift), while retaining near-nominal calibration under covariate shift. Its main practical cost is inference: with frozen weights, large support and target catalogues require substantial GPU/accelerator memory, and full-catalogue deployment may need support-set subsampling or distillation. SHAP attributions identify WISE W1/W2 as the strongest individual predictors, with UV and optical bands offering non-negligible refinements. We conclude that TabPFN 2.5 is a strong default for probabilistic quasar photo-z estimation, particularly when training data are limited or when calibration under covariate shift is critical.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://marixko.github.io/talk/coding/">
+  <link rel="alternate" hreflang="en-us" href="https://marixko.github.io/publication/journal-article-valenca2026/">
 
   
 
@@ -98,37 +98,38 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://marixko.github.io/talk/coding/">
+  <link rel="canonical" href="https://marixko.github.io/publication/journal-article-valenca2026/">
 
   
   
   
   
     
+    
   
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Lilianne Nakazono, PhD">
-  <meta property="og:url" content="https://marixko.github.io/talk/coding/">
-  <meta property="og:title" content="Coding and Analyzing Qualitative Data | Lilianne Nakazono, PhD">
-  <meta property="og:description" content="An example talk using academia&#39;s Markdown slides feature."><meta property="og:image" content="https://marixko.github.io/talk/coding/featured.jpg">
-  <meta property="twitter:image" content="https://marixko.github.io/talk/coding/featured.jpg"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="https://marixko.github.io/publication/journal-article-valenca2026/">
+  <meta property="og:title" content="Tabular foundation models for the estimation of probabilistic quasar photometric redshifts in S-PLUS | Lilianne Nakazono, PhD">
+  <meta property="og:description" content="We assess whether tabular foundation models can be used as off-the-shelf probabilistic photometric-redshift estimators for quasars in the 12-band S-PLUS DR6 survey, where colour-redshift degeneracies produce multi-modal posteriors and spectroscopic training sets are shifted relative to the photometric population. TabPFN 2.5, RealTabPFN 2.5, and TabICL are benchmarked against eight task-specific baselines, including linear conditional Gaussians, FlexZBoost, mixture-density networks, normalising flows, random forests, and gradient-boosted trees, with training sets from 500 to 121,626 quasars, using both density and point-prediction metrics, together with importance-weighted scores that approximate deployment on the photometric target sample. TabPFN 2.5 is best or statistically tied for best on all metrics except the unweighted CDE loss, on which the normalising flow is statistically tied and attains the lowest mean value; its largest gains occur for small training sets and in difficult regimes (very bright and faint sources, high redshift), while retaining near-nominal calibration under covariate shift. Its main practical cost is inference: with frozen weights, large support and target catalogues require substantial GPU/accelerator memory, and full-catalogue deployment may need support-set subsampling or distillation. SHAP attributions identify WISE W1/W2 as the strongest individual predictors, with UV and optical bands offering non-negligible refinements. We conclude that TabPFN 2.5 is a strong default for probabilistic quasar photo-z estimation, particularly when training data are limited or when calibration under covariate shift is critical."><meta property="og:image" content="https://marixko.github.io/publication/journal-article-valenca2026/featured.png">
+  <meta property="twitter:image" content="https://marixko.github.io/publication/journal-article-valenca2026/featured.png"><meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-01-01T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2026-08-10T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2030-06-01T13:00:00&#43;00:00">
+  <meta property="article:modified_time" content="2026-08-10T00:00:00&#43;00:00">
   
-
-  
-
 
   
 
 
+  
 
 
 
-  <title>Coding and Analyzing Qualitative Data | Lilianne Nakazono, PhD</title>
+
+
+  <title>Tabular foundation models for the estimation of probabilistic quasar photometric redshifts in S-PLUS | Lilianne Nakazono, PhD</title>
 
 </head>
 
@@ -369,7 +370,7 @@
 </nav>
 
 
-  <div class="pub py-5" itemscope itemtype="http://schema.org/Event">
+  <div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
 
   
 
@@ -384,31 +385,52 @@
 
 
 
+    
 
-<div class="container split-header">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-        <img class="img-fluid w-100" src="/talk/coding/featured_hu_9318c2d8ce78c975.jpg" itemprop="image" alt="">
+    
+    
+    
+    <div class="article-container py-3">
+        <img class="img-fluid w-100" src="/publication/journal-article-valenca2026/featured.png" itemprop="image" alt="">
         <span
-          class="article-header-caption">Image credit: <a href="https://unsplash.com/photos/bzdhc5b3Bxs"><strong>Unsplash</strong></a></span>
-    </div>
-    <div class="col-lg-8">
-      <h1 itemprop="name">Coding and Analyzing Qualitative Data</h1>
+          class="article-header-caption">Image credit: Valença et al. 2026 (arXiv preprint)</span>
+      <h1 class="h3" itemprop="name">Tabular foundation models for the estimation of probabilistic quasar photometric redshifts in S-PLUS</h1>
 
       
 
       
+      
 
 
 
-<meta content="2030-06-01 13:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2030-06-01 13:00:00 &#43;0000 UTC" itemprop="dateModified">
+<meta content="2026-08-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2026-08-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
 
 <div class="article-metadata">
 
   
   
+  
+  
+  <div>
+    
 
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/valenca-et-al./">Valença et al.</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>August 2026</time>
+  </span>
   
 
   
@@ -443,8 +465,18 @@
 
 
 
-    </div>
-    
+      
+
+<div class="btn-links mb-3">
+
+
+<a class="btn btn-outline-primary my-1 mr-1" href="https://arxiv.org/abs/2608.10280" target="_blank" rel="noopener">
+  arXiv
+</a>
+
+</div>
+
+      
     </div>
   </div>
 </div>
@@ -452,52 +484,36 @@
   <div class="article-container">
 
     
-      <h3>Abstract</h3>
-      <p class="pub-abstract" itemprop="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam.</p>
+    <h3>Abstract</h3>
+    <p class="pub-abstract" itemprop="text">We assess whether tabular foundation models can be used as off-the-shelf probabilistic photometric-redshift estimators for quasars in the 12-band S-PLUS DR6 survey, where colour-redshift degeneracies produce multi-modal posteriors and spectroscopic training sets are shifted relative to the photometric population. TabPFN 2.5, RealTabPFN 2.5, and TabICL are benchmarked against eight task-specific baselines, including linear conditional Gaussians, FlexZBoost, mixture-density networks, normalising flows, random forests, and gradient-boosted trees, with training sets from 500 to 121,626 quasars, using both density and point-prediction metrics, together with importance-weighted scores that approximate deployment on the photometric target sample. TabPFN 2.5 is best or statistically tied for best on all metrics except the unweighted CDE loss, on which the normalising flow is statistically tied and attains the lowest mean value; its largest gains occur for small training sets and in difficult regimes (very bright and faint sources, high redshift), while retaining near-nominal calibration under covariate shift. Its main practical cost is inference: with frozen weights, large support and target catalogues require substantial GPU/accelerator memory, and full-catalogue deployment may need support-set subsampling or distillation. SHAP attributions identify WISE W1/W2 as the strongest individual predictors, with UV and optical bands offering non-negligible refinements. We conclude that TabPFN 2.5 is a strong default for probabilistic quasar photo-z estimation, particularly when training data are limited or when calibration under covariate shift is critical.</p>
     
 
+    
     <div class="row">
       <div class="col-md-10 mx-auto">
         <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Date</div>
-          <div class="col-12 col-md-9" itemprop="datePublished">
-            
-            Jun 1, 2030
-            <div class="talk-time">
-              
-                1:00 PM
-                
-                  &mdash; 3:00 PM
-                
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="d-md-none space-below"></div>
-
-    <div class="row">
-      <div class="col-md-10 mx-auto">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Event</div>
+          <div class="col-12 col-md-3 pub-row-heading">Type</div>
           <div class="col-12 col-md-9">
-            <a href="https://example.org" target="_blank" rel="noopener">
-            academia Theme Conference
+            
+            
+            <a href="/publication/#2">
+              Journal article
             </a>
+            
           </div>
         </div>
       </div>
     </div>
     <div class="d-md-none space-below"></div>
+    
 
     
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Location</div>
-          <div class="col-12 col-md-9">London, United Kingdom</div>
+          <div class="col-12 col-md-3 pub-row-heading">Publication</div>
+          <div class="col-12 col-md-9">arXiv preprint, submitted to AAS Journals</div>
         </div>
       </div>
       <div class="col-md-1"></div>
@@ -507,19 +523,17 @@
 
     <div class="space-below"></div>
 
-    <div class="article-style">
-      <!-- raw HTML omitted -->
-<p>Slides can be added in a few ways:</p>
-<ul>
-<li><strong>Create</strong> slides using academia&rsquo;s <a href="https://sourcethemes.com/academic/docs/managing-content/#create-slides"><em>Slides</em></a> feature and link using <code>slides</code> parameter in the front matter of the talk file</li>
-<li><strong>Upload</strong> an existing slide deck to <code>static/</code> and link using <code>url_slides</code> parameter in the front matter of the talk file</li>
-<li><strong>Embed</strong> your slides (e.g. Google Slides) or presentation video on this page using <a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/">shortcodes</a>.</li>
-</ul>
-<p>Further talk details can easily be added to this page using <em>Markdown</em> and $\rm \LaTeX$ math code.</p>
-
-    </div>
+    <div class="article-style"><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+</div>
 
     
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/s-plus/">S-PLUS</a>
+  
+</div>
 
 
     
@@ -532,10 +546,31 @@
 
 
   
+  
+    
+  
+  
 
 
 
 
+
+  
+  
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/authors/valenca-et-al./"></a></h5>
+      
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+      </ul>
+    </div>
+  </div>
 
 
 
@@ -548,9 +583,6 @@
       
 
     
-    
-    
-    <script src="/js/mathjax-config.js"></script>
     
 
     
@@ -570,8 +602,6 @@
       
 
       
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
       
     
 
