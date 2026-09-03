@@ -1,0 +1,35 @@
+{% assign lang = include.lang | default: "en" %}
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+    <a class="navbar-brand" href="{% if lang == 'pt' %}/pt/{% else %}/{% endif %}">Lilianne Nakazono, PhD</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="{% if lang == 'pt' %}Alternar navegação{% else %}Toggle navigation{% endif %}"><span><i class="fas fa-bars"></i></span></button>
+    <div class="btn-group ml-auto" role="group" aria-label="Language switcher" style="position: absolute; right: 20px; top: 10px;">
+      <button type="button" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/pt/'">Português</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.location.href='/'">English</button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav ml-auto">
+        {% if lang == 'pt' %}
+        <li class="nav-item"><a class="nav-link" href="/pt/#about"><span>Sobre mim</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/pt/#experience"><span>Formação</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/pt/#featured"><span>Publicações</span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="/pt/teaching.html"><span>Cursos</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/pt/blog/"><span>Blog</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/pt/talk/"><span>Talk</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/pt/#contact"><span>Contato</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/files/cv.pdf"><span>CV</span></a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="/#about"><span>Home</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/#experience"><span>Research</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/#featured"><span>Publications</span></a></li>
+        <li class="nav-item"><a class="nav-link active" href="/teaching.html"><span>Teaching</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/"><span>Blog</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/talk/"><span>Talk</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/#contact"><span>Contact</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/files/cv.pdf"><span>CV</span></a></li>
+        {% endif %}
+        <li class="nav-item"><a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

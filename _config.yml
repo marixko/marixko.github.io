@@ -1,0 +1,17 @@
+title: Lilianne Nakazono, PhD
+
+# This repo is the built (Hugo) site, committed as static HTML. GitHub Pages runs
+# Jekyll over it; files without front matter pass through untouched. Only the
+# course pages under courses/ and pt/courses/ opt into Jekyll (Markdown + layout).
+
+defaults:
+  - scope:
+      path: "courses"
+    values:
+      layout: course
+      lang: en
+  - scope:
+      path: "pt/courses"
+    values:
+      layout: course
+      lang: pt

@@ -1,0 +1,83 @@
+{% assign lang = page.lang | default: "en" %}
+{% assign t = site.data.i18n[lang] %}
+{% assign nav = site.data.course_nav[page.course][lang] %}
+<!DOCTYPE html>
+<html lang="{% if lang == 'pt' %}pt-br{% else %}en{% endif %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ t.section_word }} | Lilianne Nakazono, PhD</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="/css/academia.min.dbe83bbf6477781bec4f66e695a12d6d.css">
+  <style>
+    .dark .docs-search .text-muted{color:rgba(255,255,255,.7)!important}
+    /* corpo do texto um pouco menor que o padrao do tema (20px) */
+    .docs-content .article-style{ font-size:16px; line-height:1.6; }
+    .docs-content .article-style li{ margin-bottom:.3rem; }
+    /* grifo: <mark>palavra</mark> -> traço rosa (mesmo tom do site) */
+    .docs-content mark,
+    .docs-content .g{
+      background:linear-gradient(transparent 50%, rgba(247,100,151,.55) 50%);
+      color:inherit;
+      border-radius:.1em;
+      padding:0 .08em;
+      font-style:normal;
+    }
+    /* grifo forte: **palavra**{:.gb} -> texto rosa em negrito */
+    .docs-content .gb{ color:#f76497; font-weight:700; font-style:normal; }
+  </style>
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" class="dark">
+  {% include course-navbar.html lang=lang %}
+
+  <div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+
+      {% include course-sidebar.html nav=nav t=t %}
+
+      <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+        <article class="article">
+          <h1 itemprop="name">{{ page.title }}</h1>
+          <div class="article-style" itemprop="articleBody">
+            {{ content }}
+          </div>
+        </article>
+
+        {% assign found = false %}
+        {% for m in nav.modules %}{% for p in m.pages %}
+          {% if found and next == nil %}{% assign next = p %}{% endif %}
+          {% if p.url == page.url %}{% assign found = true %}{% endif %}
+          {% unless found %}{% assign prev = p %}{% endunless %}
+        {% endfor %}{% endfor %}
+        {% if found %}
+        <div class="d-flex justify-content-between article-style" style="margin-top:3rem;">
+          {% if prev %}<a href="{{ prev.url }}">&larr; {{ t.prev }}</a>{% else %}<span></span>{% endif %}
+          {% if next %}<a href="{{ next.url }}">{{ t.next }} &rarr;</a>{% else %}<span></span>{% endif %}
+        </div>
+        {% endif %}
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/academia.min.6c2ba2801d406881b3c2277043cedd76.js"></script>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>

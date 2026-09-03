@@ -1,0 +1,32 @@
+{% assign nav = include.nav %}
+{% assign t = include.t %}
+<div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+  <form class="docs-search d-flex align-items-center">
+    <button class="btn btn-link p-0 mr-3 docs-toggle d-md-none" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="{{ t.overview }}">
+      <i class="fas fa-bars"></i>
+    </button>
+    <span class="text-muted">{{ nav.title }}</span>
+  </form>
+  <nav class="collapse docs-links" id="docs-nav">
+
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="{{ t.courses_home }}">&larr; {{ t.all_courses }}</a>
+    </div>
+
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="{{ nav.base }}/">{{ t.overview }}</a>
+    </div>
+
+    {% for m in nav.modules %}
+    <div class="docs-toc-item">
+      <a class="docs-toc-link" href="#">{{ m.title }}</a>
+      <ul class="nav docs-sidenav">
+        {% for p in m.pages %}
+        <li{% if p.url == page.url %} class="active"{% endif %}><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+
+  </nav>
+</div>

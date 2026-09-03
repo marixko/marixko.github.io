@@ -1,0 +1,15 @@
+en:
+  section_word: "Courses"
+  courses_home: "/courses/"
+  all_courses: "All courses"
+  overview: "Overview"
+  prev: "Previous"
+  next: "Next"
+
+pt:
+  section_word: "Cursos"
+  courses_home: "/pt/courses/"
+  all_courses: "Todos os cursos"
+  overview: "Visão geral"
+  prev: "Anterior"
+  next: "Próximo"
