@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redes Neurais e LLMs</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --ink:#eceae4; --muted:#9a9ca5; --line:#2a2e38;
+    --accent:#f2a65a; --accent2:#6cc4a1; --accent3:#8fa8ff; --danger:#e8746b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow:hidden}
+  .deck{position:relative;height:100%;width:100%}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;overflow-y:auto;
+    padding:5vh 7vw 12vh;opacity:0;pointer-events:none;transform:translateX(40px);transition:opacity .45s ease, transform .45s ease}
+  .slide > :first-child{margin-top:auto}
+  .slide > :last-child{margin-bottom:auto}
+  .slide.active{opacity:1;pointer-events:auto;transform:none}
+  .slide.prev{transform:translateX(-40px)}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .kicker.math{color:var(--accent3)}
+  .kicker.math::after{content:"  ∑ fundamento matemático";color:var(--accent3);opacity:.7}
+  h1{font-family:Fraunces,serif;font-weight:700;font-size:clamp(40px,6.5vw,88px);line-height:1.02;letter-spacing:-.02em}
+  h2{font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,3.2vw,44px);line-height:1.1;margin-bottom:20px;letter-spacing:-.01em}
+  h3{font-family:Fraunces,serif;font-weight:500;font-size:21px;margin-bottom:8px}
+  p,li{font-size:clamp(14px,1.2vw,18px);line-height:1.55;color:#d6d4ce}
+  .muted{color:var(--muted)}
+  em{color:var(--accent);font-style:normal}
+  b{color:var(--ink)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:center}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+  ul.clean{list-style:none}
+  ul.clean li{padding:6px 0 6px 22px;position:relative}
+  ul.clean li::before{content:"";position:absolute;left:0;top:16px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  code,.mono{font-family:'JetBrains Mono',monospace}
+  .formula{font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.3vw,19px);background:#0b0d11;border:1px solid var(--line);
+    border-radius:10px;padding:12px 16px;margin:12px 0;color:var(--accent2);line-height:1.6}
+  .formula .c{color:var(--muted);font-size:.85em}
+  .analogy{border-left:3px solid var(--accent);padding:8px 14px;margin:12px 0;background:rgba(242,166,90,.06);border-radius:0 8px 8px 0}
+  label{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted);margin:8px 0;font-family:'JetBrains Mono',monospace}
+  label span.v{color:var(--ink);min-width:48px;text-align:right}
+  input[type=range]{flex:1;accent-color:var(--accent)}
+  svg text{font-family:Inter,sans-serif}
+  .pill{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid var(--line);margin:3px;font-family:'JetBrains Mono',monospace;font-size:14px;cursor:pointer;transition:all .2s;user-select:none}
+  .pill:hover,.pill.on{border-color:var(--accent);color:var(--accent)}
+  .pill.on2{border-color:var(--accent3);color:var(--accent3)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+  .steps .num{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:13px;margin-bottom:6px}
+  .bar{display:flex;align-items:center;gap:10px;margin:7px 0;font-family:'JetBrains Mono',monospace;font-size:15px}
+  .bar .w{width:90px;text-align:right}
+  .bar .track{flex:1;height:22px;background:#0b0d11;border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+  .bar .fill{height:100%;background:var(--accent);transition:width .35s ease}
+  .bar .p{width:56px;color:var(--muted)}
+  button.btn{background:var(--accent);color:#1a1205;border:0;border-radius:8px;padding:9px 15px;font-weight:600;font-family:Inter;cursor:pointer;font-size:14px}
+  button.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  button.btn.ghost.on{border-color:var(--accent);color:var(--accent)}
+  .gen{font-family:'JetBrains Mono',monospace;font-size:clamp(16px,1.6vw,22px);min-height:64px;padding:14px 0;line-height:1.5}
+  .gen .new{color:var(--accent);}
+  .tok{display:inline-block;padding:4px 8px;margin:3px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:15px}
+  table.t{border-collapse:collapse;width:100%;font-family:'JetBrains Mono',monospace;font-size:14px}
+  table.t th{color:var(--muted);font-weight:400;text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}
+  table.t td{text-align:right;padding:6px 8px;border-bottom:1px solid #20242c}
+  table.t th:first-child,table.t td:first-child{text-align:left}
+  table.t tr.sum td{color:var(--accent2);border-bottom:0}
+  .mx{display:inline-grid;gap:2px;padding:4px 8px;border-left:2px solid var(--muted);border-right:2px solid var(--muted);border-radius:6px;vertical-align:middle}
+  .mx span{font-family:'JetBrains Mono',monospace;font-size:14px;padding:4px 7px;text-align:center;border-radius:4px;transition:background .2s}
+  .mx span.hl{background:rgba(242,166,90,.3)}
+  .op{font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--muted);margin:0 6px;vertical-align:middle}
+  .readout{font-family:'JetBrains Mono',monospace;font-size:15px;margin-top:8px}
+  .readout b{color:var(--accent)}
+  nav.ctrl{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;padding:14px 7vw;z-index:10;background:linear-gradient(transparent,var(--bg) 40%)}
+  .progress{position:fixed;left:0;top:0;height:3px;background:var(--accent);transition:width .4s ease;z-index:10}
+  .dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:55vw}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .3s}
+  .dots i.m{background:#3a4566}
+  .dots i.on{background:var(--accent);width:20px;border-radius:4px}
+  .navbtns button{background:var(--panel);border:1px solid var(--line);color:var(--ink);width:42px;height:42px;border-radius:10px;cursor:pointer;font-size:18px;margin-left:8px}
+  .navbtns button:hover{border-color:var(--accent)}
+  .counter{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:13px}
+  .hint{font-size:13px;color:var(--muted);margin-top:8px}
+  .divider{background:radial-gradient(ellipse at 85% 15%,rgba(242,166,90,.13),transparent 55%),radial-gradient(ellipse at 10% 90%,rgba(143,168,255,.10),transparent 55%)}
+  ul.clean.done li{color:var(--muted)}
+  ul.clean.done li::before{background:var(--muted)}
+  .scale{display:flex;gap:5vw;margin-top:16px;flex-wrap:wrap}
+  .scale div{display:flex;align-items:baseline;gap:12px}
+  .scale .big{font-family:Fraunces,serif;font-size:clamp(30px,3.4vw,48px);font-weight:700}
+  .dots i.d{background:#6b5536}
+  /* ---- revelação passo a passo ---- */
+  .frag{opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
+  li.frag{transform:translateX(-16px)}
+  .ln{display:inline-block;border-radius:4px}
+  .ln.frag{transform:translateX(-12px)}
+  .frag.shown{opacity:1;transform:none;pointer-events:auto}
+  .just{animation:glow 1.1s ease}
+  li.just,.ln.just{animation:hl 1.4s ease}
+  @keyframes glow{0%{box-shadow:0 0 0 0 rgba(242,166,90,.55)}100%{box-shadow:0 0 0 16px rgba(242,166,90,0)}}
+  @keyframes hl{0%{background:rgba(242,166,90,.28)}100%{background:rgba(242,166,90,0)}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .slide.active > .kicker,.slide.active > h1,.slide.active > h2{animation:rise .55s ease both}
+  .slide.active > h1,.slide.active > h2{animation-delay:.08s}
+  .slide.active .lead{animation:rise .55s ease .22s both}
+  @keyframes draw{from{stroke-dashoffset:2000}to{stroke-dashoffset:0}}
+  .drawin path:not([stroke-dasharray]){stroke-dasharray:2000;animation:draw 1.5s ease-out both}
+  .navbtns button.more{border-color:var(--accent);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,166,90,.5)}70%{box-shadow:0 0 0 9px rgba(242,166,90,0)}100%{box-shadow:0 0 0 0 rgba(242,166,90,0)}}
+  .buildB{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 11px;font-family:'JetBrains Mono',monospace;font-size:12px;cursor:pointer;margin-left:10px}
+  .buildB.on{color:var(--accent);border-color:rgba(242,166,90,.5)}
+  @keyframes flow{to{stroke-dashoffset:-24}}
+  .flow{animation:flow 1.2s linear infinite}
+  @media (max-width:860px){ .grid,.steps{grid-template-columns:1fr} .slide{padding:4vh 6vw 14vh} }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+
+  <!-- TÍTULO -->
+  <section class="slide">
+    <div class="kicker" id="titleKicker">Aula introdutória</div>
+    <h1>Redes Neurais<br>e <em>LLMs</em></h1>
+    <p class="muted" style="margin-top:26px;max-width:680px">Do neurônio artificial ao ChatGPT e ao Claude: a intuição, a matemática por trás e como isso vira um modelo que conversa.</p>
+    <p class="hint" style="margin-top:36px">Use ← → (ou espaço) para navegar: cada toque revela o próximo passo do slide, e o botão → pulsa enquanto ainda há conteúdo a mostrar. Slides marcados com <span style="color:var(--accent3)">∑</span> trazem os fundamentos matemáticos. Vários são interativos.</p>
+  </section>
+
+  <!-- NEURÔNIO -->
+  <section class="slide">
+    <div class="kicker">O bloco básico</div>
+    <h2>O neurônio artificial</h2>
+    <div class="grid">
+      <div>
+        <p>Um neurônio recebe números de entrada, multiplica cada um por um <em>peso</em>, soma tudo com um <em>viés</em> e passa o resultado por uma <em>função de ativação</em>.</p>
+        <div class="formula">z = w₁·x₁ + w₂·x₂ + b<br>y = σ(z)</div>
+        <p class="muted">Os pesos dizem o quanto cada entrada importa. Aprender = ajustar esses pesos. Mexa nos controles ao lado.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 360 170" width="100%">
+          <circle cx="40" cy="45" r="20" fill="none" stroke="#8fa8ff" stroke-width="2"/><text x="40" y="50" text-anchor="middle" fill="#eceae4" font-size="13">x₁</text>
+          <circle cx="40" cy="125" r="20" fill="none" stroke="#8fa8ff" stroke-width="2"/><text x="40" y="130" text-anchor="middle" fill="#eceae4" font-size="13">x₂</text>
+          <line id="l1" x1="60" y1="50" x2="165" y2="82" stroke="#f2a65a" stroke-width="3"/>
+          <line id="l2" x1="60" y1="120" x2="165" y2="90" stroke="#f2a65a" stroke-width="3"/>
+          <circle cx="190" cy="86" r="28" fill="#171a21" stroke="#f2a65a" stroke-width="2"/><text x="190" y="92" text-anchor="middle" fill="#eceae4" font-size="16">Σ σ</text>
+          <line x1="218" y1="86" x2="290" y2="86" stroke="#6cc4a1" stroke-width="3"/>
+          <circle id="out" cx="315" cy="86" r="22" fill="#6cc4a1" fill-opacity=".5" stroke="#6cc4a1" stroke-width="2"/>
+          <text id="outT" x="315" y="91" text-anchor="middle" fill="#eceae4" font-size="12">0.50</text>
+          <text id="zT" x="190" y="140" text-anchor="middle" fill="#9a9ca5" font-size="11">z = 0</text>
+        </svg>
+        <label>x₁ <input type="range" id="x1" min="0" max="1" step=".01" value=".8"><span class="v" id="x1v"></span></label>
+        <label>x₂ <input type="range" id="x2" min="0" max="1" step=".01" value=".3"><span class="v" id="x2v"></span></label>
+        <label>w₁ <input type="range" id="w1" min="-4" max="4" step=".1" value="2"><span class="v" id="w1v"></span></label>
+        <label>w₂ <input type="range" id="w2" min="-4" max="4" step=".1" value="-1"><span class="v" id="w2v"></span></label>
+        <label>b&nbsp; <input type="range" id="b" min="-3" max="3" step=".1" value="0"><span class="v" id="bv"></span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTO ESCALAR -->
+  <section class="slide">
+    <div class="kicker math">Vetores</div>
+    <h2>Um neurônio é um produto escalar</h2>
+    <div class="grid">
+      <div>
+        <p>Juntamos as entradas num vetor <b>x</b> e os pesos num vetor <b>w</b>. A soma ponderada é o <em>produto escalar</em>:</p>
+        <div class="formula">z = w · x + b = Σᵢ wᵢ xᵢ + b</div>
+        <p><b>Exemplo:</b> x = [2, 1, 3], w = [0.5, −1, 0.2], b = 0.1</p>
+        <div class="formula lines">z = 0.5·2 + (−1)·1 + 0.2·3 + 0.1<br>&nbsp;&nbsp;= 1 − 1 + 0.6 + 0.1 = <b style="color:var(--accent)">0.7</b></div>
+        <p class="muted">Geometricamente, <b>w · x = ‖w‖ ‖x‖ cos θ</b>: o produto escalar mede o quanto dois vetores apontam na mesma direção. Ou seja, cada neurônio é um <em>detector</em>: ele "acende" quando a entrada se parece com o padrão guardado em seus pesos.</p>
+      </div>
+      <div class="card">
+        <svg id="dotSvg" viewBox="0 0 320 210" width="100%"></svg>
+        <label>ângulo θ <input type="range" id="ang" min="0" max="180" step="1" value="40"><span class="v" id="angv"></span></label>
+        <div class="readout" id="dotOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMADAS -->
+  <section class="slide">
+    <div class="kicker">Profundidade</div>
+    <h2>Redes em camadas</h2>
+    <div class="grid">
+      <div>
+        <p>Organizamos neurônios em <em>camadas</em>. A saída de uma camada vira entrada da próxima.</p>
+        <ul class="clean" style="margin-top:12px">
+          <li>As primeiras camadas detectam padrões simples (bordas, sílabas).</li>
+          <li>As mais profundas combinam esses padrões em ideias complexas (rostos, significado).</li>
+          <li>"Deep learning" = redes com muitas camadas.</li>
+        </ul>
+        <p class="hint">Clique em "Propagar" para ver o sinal atravessar a rede.</p>
+        <button class="btn" id="fwdBtn" style="margin-top:10px">Propagar ▶</button>
+      </div>
+      <div class="card"><svg id="netSvg" viewBox="0 0 380 260" width="100%"></svg></div>
+    </div>
+  </section>
+
+  <!-- ATIVAÇÃO 1 -->
+  <section class="slide">
+    <div class="kicker">Função de ativação · parte 1 de 3</div>
+    <h2>Por que precisamos de uma função de ativação?</h2>
+    <div class="grid">
+      <div>
+        <div class="analogy"><p>Pense na soma <b>z</b> como "quanta evidência" o neurônio juntou. A função de ativação é a <em>regra de decisão</em>: dada essa evidência, o quanto o neurônio deve "disparar"?</p></div>
+        <p>Mas o motivo principal é outro. Sem ativação, cada camada só faz <em>multiplicar e somar</em>. E empilhar contas lineares dá… outra conta linear:</p>
+        <div class="formula lines">camada 1: h = w₁x + b₁<br>camada 2: y = w₂h + b₂<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <b style="color:var(--accent)">(w₂w₁)</b>x + <b style="color:var(--accent)">(w₂b₁+b₂)</b> <span class="c">← ainda uma reta!</span></div>
+        <p>Com 2 ou 200 camadas, uma rede sem ativação equivale a <b>uma única camada</b>. Ela só consegue separar dados com uma linha reta. A ativação "dobra" o espaço e permite fronteiras curvas.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+          <button class="btn ghost on" id="ringLin">Sem ativação</button>
+          <button class="btn ghost" id="ringNon">Com ativação (ReLU)</button>
+        </div>
+        <svg id="ringSvg" viewBox="0 0 300 300" width="100%" style="max-width:340px;display:block;margin:auto"></svg>
+        <div class="readout" id="ringOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATIVAÇÃO 2 -->
+  <section class="slide">
+    <div class="kicker">Função de ativação · parte 2 de 3</div>
+    <h2>Explorando as principais funções</h2>
+    <div class="grid">
+      <div>
+        <div id="actPills" style="margin-bottom:10px"></div>
+        <div class="card" id="actInfo" style="min-height:250px"></div>
+      </div>
+      <div class="card">
+        <svg id="actSvg" viewBox="0 0 360 250" width="100%"></svg>
+        <label>entrada z <input type="range" id="actZ" min="-4" max="4" step=".05" value="1"><span class="v" id="actZv"></span></label>
+        <div class="readout" id="actOut"></div>
+        <div class="hint">Linha cheia: f(z). Tracejada: derivada f′(z), que diz o quanto a saída muda quando z muda. É ela que permite o aprendizado (mais adiante).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATIVAÇÃO 3 -->
+  <section class="slide">
+    <div class="kicker">Função de ativação · parte 3 de 3</div>
+    <h2>Somando "dobras", desenhamos qualquer curva</h2>
+    <div class="grid">
+      <div>
+        <p>Cada neurônio com ReLU contribui com uma <em>dobra</em>: uma função que é zero até certo ponto e depois sobe em linha reta.</p>
+        <div class="formula">f(x) = Σₖ aₖ · ReLU(x − cₖ)</div>
+        <p>Somando várias dobras, com pesos <b>aₖ</b> e posições <b>cₖ</b> diferentes, montamos uma curva aos pedaços. Mais neurônios = aproximação mais fiel.</p>
+        <div class="analogy"><p>É como desenhar um círculo com segmentos de reta: com 4 parece um quadrado; com 50 parece um círculo.</p></div>
+        <p class="muted">Isso é a intuição do <b>Teorema da Aproximação Universal</b>: uma rede com ativação não linear e neurônios suficientes pode aproximar qualquer função contínua.</p>
+      </div>
+      <div class="card">
+        <svg id="uatSvg" viewBox="0 0 360 230" width="100%"></svg>
+        <label>neurônios <input type="range" id="uatN" min="1" max="20" step="1" value="3"><span class="v" id="uatNv"></span></label>
+        <div class="readout" id="uatOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATRIZ -->
+  <section class="slide">
+    <div class="kicker math">Álgebra linear</div>
+    <h2>Uma camada inteira = uma multiplicação de matriz</h2>
+    <div class="grid">
+      <div>
+        <p>Cada <b>linha</b> da matriz W guarda os pesos de um neurônio. Multiplicar W pelo vetor de entrada calcula todos os neurônios da camada de uma vez:</p>
+        <div class="formula">h = σ( W x + b )<br><span class="c">W: m × n · x: n · b, h: m</span></div>
+        <p>Uma camada com <b>n</b> entradas e <b>m</b> neurônios tem <b>m·n + m</b> parâmetros. Num LLM, uma única matriz de 4096 × 4096 já tem <em>~16,8 milhões</em> de números.</p>
+        <p class="muted">Por isso GPUs são essenciais: elas multiplicam matrizes gigantes em paralelo.</p>
+      </div>
+      <div class="card">
+        <div id="mxBox" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px"></div>
+        <p class="hint">Passe o mouse sobre um resultado para ver de qual linha ele vem.</p>
+        <div class="readout" id="mxOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERDA -->
+  <section class="slide">
+    <div class="kicker math">Medindo o erro</div>
+    <h2>Funções de perda</h2>
+    <div class="grid">
+      <div>
+        <p>Para aprender, a rede precisa de um número que diga <em>o quão errada</em> ela está. Esse número é a <b>perda</b> (loss).</p>
+        <p>Compare a resposta certa <b>y</b> com o palpite da rede <b>ŷ</b> ("y chapéu"). Um jeito clássico é o <em>erro quadrático médio</em>:</p>
+        <div class="formula">L = (1/n) Σ (yᵢ − ŷᵢ)²<br><span class="c">ex: y = 3, ŷ = 2.5 → L = (0.5)² = 0.25</span></div>
+        <ul class="clean">
+          <li>Elevar ao quadrado deixa o erro sempre positivo.</li>
+          <li>Erros grandes pesam muito mais: errar por 2 custa 4; errar por 10 custa 100.</li>
+          <li>Perda zero = palpite perfeito. Treinar = buscar a menor perda possível.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <svg id="mseSvg" viewBox="0 0 360 230" width="100%"></svg>
+        <label>palpite ŷ <input type="range" id="mseP" min="0" max="6" step=".05" value="1.5"><span class="v" id="msePv"></span></label>
+        <div class="readout" id="mseOut"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRADIENTE -->
+  <section class="slide">
+    <div class="kicker">Aprendizado</div>
+    <h2>Gradiente descendente</h2>
+    <div class="grid">
+      <div>
+        <ul class="clean">
+          <li><b>Previsão:</b> a rede faz um palpite.</li>
+          <li><b>Perda:</b> medimos o quão errado foi o palpite.</li>
+          <li><b>Gradiente:</b> calculamos a inclinação da perda em relação a cada peso.</li>
+          <li><b>Passo:</b> andamos um pouco "ladeira abaixo".</li>
+        </ul>
+        <div class="formula">w ← w − η · ∂L/∂w<br><span class="c">η = taxa de aprendizado (tamanho do passo)</span></div>
+        <p class="muted">η pequeno: lento. η grande: pula o mínimo e oscila. Experimente!</p>
+        <label style="margin-top:10px">taxa η <input type="range" id="lr" min=".02" max=".95" step=".01" value=".15"><span class="v" id="lrv"></span></label>
+        <div style="display:flex;gap:10px;margin-top:8px"><button class="btn" id="gdStep">Dar 1 passo</button><button class="btn ghost" id="gdReset">Reiniciar</button></div>
+      </div>
+      <div class="card">
+        <svg id="gdSvg" viewBox="0 0 360 230" width="100%"></svg>
+        <div class="mono hint" id="gdInfo"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGRA DA CADEIA -->
+  <section class="slide">
+    <div class="kicker math">Cálculo</div>
+    <h2>Backpropagation = regra da cadeia</h2>
+    <div class="grid">
+      <div>
+        <p>Como saber o efeito de um peso lá no início sobre a perda lá no fim? Usando a <em>regra da cadeia</em>: multiplicamos as derivadas de cada etapa, de trás para frente.</p>
+        <div class="formula">∂L/∂w = ∂L/∂z · ∂z/∂w</div>
+        <p><b>Exemplo:</b> z = w·x + b, L = (z − y)², com x=2, w=3, b=1, y=10</p>
+        <div class="formula lines">ida: z = 3·2+1 = 7, L = (7−10)² = 9<br>∂L/∂z = 2(z−y) = −6 · ∂z/∂w = x = 2<br>∂L/∂w = (−6)(2) = <b style="color:var(--accent)">−12</b><br>w ← 3 − 0.01·(−12) = <b style="color:var(--accent2)">3.12</b> <span class="c">→ L cai para 7.62</span></div>
+      </div>
+      <div class="card">
+        <div style="display:flex;gap:8px;margin-bottom:6px"><button class="btn ghost on" id="bpF">Ida (forward)</button><button class="btn ghost" id="bpB">Volta (backward)</button></div>
+        <svg id="bpSvg" viewBox="0 0 380 240" width="100%"></svg>
+        <div class="hint" id="bpHint"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVISOR -->
+  <section class="slide divider">
+    <div class="kicker nonum">Parte 2 de 2</div>
+    <h1 style="font-size:clamp(38px,5.6vw,76px)">Dos neurônios<br>aos <em>LLMs</em></h1>
+    <svg id="bridgeSvg" viewBox="0 0 900 120" width="100%" style="margin:26px 0 10px;max-height:120px"></svg>
+    <div class="grid" style="align-items:stretch;grid-template-columns:1fr auto 1fr;gap:2.5vw">
+      <div class="card">
+        <div class="kicker nonum" style="color:var(--muted)">✓ Parte 1 · Redes neurais</div>
+        <ul class="clean done">
+          <li>Neurônio = produto escalar + ativação</li>
+          <li>Camadas = multiplicação de matrizes</li>
+          <li>Perda mede o erro</li>
+          <li>Gradientes e backprop ajustam os pesos</li>
+        </ul>
+      </div>
+      <div style="display:flex;align-items:center;font-size:40px;color:var(--accent)">→</div>
+      <div class="card" style="border-color:var(--accent)">
+        <div class="kicker nonum">Parte 2 · Modelos de linguagem</div>
+        <ul class="clean">
+          <li>Como texto vira números (tokens e embeddings)</li>
+          <li>Atenção e a arquitetura Transformer</li>
+          <li>Softmax e geração token a token</li>
+          <li>Como um LLM é treinado</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:22px;max-width:900px">Um LLM <em>não é uma tecnologia diferente</em>: é tudo o que vimos até aqui (neurônios, matrizes, ativações, perda e gradientes), só que em escala gigantesca e aplicado a texto.</p>
+    <div class="scale">
+      <div><span class="big">3</span><span class="muted">pesos no nosso neurônio de exemplo</span></div>
+      <div><span class="big" style="color:var(--accent)">~10¹¹</span><span class="muted">parâmetros em um LLM grande (centenas de bilhões)</span></div>
+    </div>
+  </section>
+
+  <!-- TOKENS -->
+  <section class="slide">
+    <div class="kicker">Linguagem vira número</div>
+    <h2>Tokens e embeddings</h2>
+    <div class="grid">
+      <div>
+        <p>Redes só entendem números. Por isso o texto é quebrado em <em>tokens</em> (pedaços de palavras), e cada token vira um <em>vetor</em> de centenas ou milhares de números: o embedding.</p>
+        <p style="margin-top:12px">Palavras com significados parecidos ficam próximas nesse espaço.</p>
+        <div class="card" style="margin-top:16px">
+          <div class="hint" style="margin-top:0;margin-bottom:6px">"Inteligência artificial é incrível" →</div>
+          <div id="toks"></div>
+        </div>
+      </div>
+      <div class="card"><svg id="embSvg" viewBox="0 0 360 260" width="100%"></svg><div class="hint">Projeção 2D ilustrativa de embeddings</div></div>
+    </div>
+  </section>
+
+  <!-- COSSENO -->
+  <section class="slide">
+    <div class="kicker math">Geometria do significado</div>
+    <h2>Similaridade do cosseno</h2>
+    <div class="grid">
+      <div>
+        <p>Para medir se dois embeddings têm significado parecido, comparamos a <em>direção</em> dos vetores:</p>
+        <div class="formula">cos(θ) = (a · b) / (‖a‖ ‖b‖)<br><span class="c">1 = mesma direção · 0 = sem relação · −1 = opostos</span></div>
+        <p>Embeddings de brinquedo com 3 dimensões: <span class="mono muted">[realeza, masculino, ser vivo]</span>. Os reais têm milhares, e ninguém escolhe o que cada uma significa: isso emerge do treino.</p>
+        <div class="formula lines">rei − homem + mulher<br>= [0.95, 0.9, 1] − [0.05, 0.9, 1] + [0.05, 0.1, 1]<br>= [0.95, 0.1, 1] = <b style="color:var(--accent)">rainha</b></div>
+      </div>
+      <div class="card">
+        <div class="hint" style="margin-top:0">Palavra A</div><div id="cosA"></div>
+        <div class="hint">Palavra B</div><div id="cosB"></div>
+        <div class="readout" id="cosOut" style="margin-top:14px;line-height:1.8"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATENÇÃO -->
+  <section class="slide">
+    <div class="kicker">A arquitetura Transformer</div>
+    <h2>Atenção: quem olha para quem</h2>
+    <div class="grid">
+      <div>
+        <p>O <em>Transformer</em> (2017) é a base de todos os LLMs modernos. Sua peça central é a <em>autoatenção</em>: cada token decide em quais outros tokens prestar atenção para entender o contexto.</p>
+        <p style="margin-top:12px" class="muted">Em "O gato subiu no muro porque <b>ele</b> estava assustado", a atenção liga "ele" a "gato".</p>
+        <p class="hint">Passe o mouse (ou toque) em uma palavra.</p>
+      </div>
+      <div class="card">
+        <div id="attWords" style="line-height:2.4"></div>
+        <svg id="attSvg" viewBox="0 0 360 40" width="100%" style="margin-top:8px"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATENÇÃO MAT -->
+  <section class="slide">
+    <div class="kicker math">A fórmula da atenção</div>
+    <h2>Query, Key, Value</h2>
+    <div class="grid">
+      <div>
+        <div class="formula" style="font-size:clamp(16px,1.6vw,22px)">Atenção(Q,K,V) = softmax( QKᵀ / √d ) · V</div>
+        <div class="analogy"><p>Como numa biblioteca: a <b>Query</b> é sua pergunta, cada livro tem uma <b>Key</b> (etiqueta) e um <b>Value</b> (conteúdo). Você lê mais os livros cujas etiquetas combinam com a pergunta.</p></div>
+        <ul class="clean">
+          <li>Cada token gera q, k, v multiplicando seu embedding por matrizes aprendidas W<sub>Q</sub>, W<sub>K</sub>, W<sub>V</sub>.</li>
+          <li><b>q · k</b> mede a compatibilidade; dividir por √d evita números grandes demais.</li>
+          <li><b>softmax</b> transforma em pesos que somam 1.</li>
+          <li>A saída é a média dos <b>v</b>, ponderada por esses pesos.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="mono" style="font-size:14px">Token "<b style="color:var(--accent)">ele</b>": q = [1.0, 0.8], d = 2</p>
+        <div id="attTable" style="margin-top:10px"></div>
+        <div class="readout" id="attRes"></div>
+        <p class="hint">Na prática há várias "cabeças" de atenção em paralelo (multi-head), cada uma aprendendo um tipo de relação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTMAX -->
+  <section class="slide">
+    <div class="kicker math">De pontuações a probabilidades</div>
+    <h2>Softmax</h2>
+    <div class="grid">
+      <div>
+        <p>A última camada de um LLM dá uma <em>pontuação bruta</em> (chamada <b>logit</b>) para cada token do vocabulário, que tem de 50 a 200 mil tokens. Essas pontuações podem ser negativas e não somam 1: ainda <b>não</b> são probabilidades.</p>
+        <p>A <em>softmax</em> faz essa conversão:</p>
+        <div class="formula">pᵢ = e^(zᵢ) / Σⱼ e^(zⱼ)</div>
+        <ul class="clean">
+          <li><b>Passo 1:</b> e^z deixa tudo positivo e amplia as diferenças: quem pontuou mais ganha bem mais.</li>
+          <li><b>Passo 2:</b> dividir pela soma faz tudo somar 1, ou seja, 100%.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="mono" style="font-size:14px;margin-bottom:10px">"O céu está ___"</p>
+        <div id="smTable"></div>
+        <p class="hint">Uma pontuação 1 ponto maior vira uma probabilidade ~2,7× maior (e ≈ 2,718).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMPERATURA -->
+  <section class="slide">
+    <div class="kicker math">O botão de criatividade</div>
+    <h2>Temperatura</h2>
+    <div class="grid">
+      <div>
+        <p>O modelo <em>sorteia</em> o próximo token. A temperatura <b>T</b> decide o quanto o favorito leva vantagem: antes da softmax, cada pontuação é dividida por T.</p>
+        <div class="formula lines">azul = 3, nublado = 2 → diferença 1<br>T = 0.5: 6 e 4 → diferença 2 <span class="c">← favorito dispara</span><br>T = 2: 1.5 e 1 → diferença 0.5 <span class="c">← opções se aproximam</span></div>
+        <p class="muted"><b>T baixa</b>: previsível (código, fatos). <b>T alta</b>: criativo, mas pode perder o sentido.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <span class="mono muted" style="font-size:13px;margin-right:4px">"O céu está ___"</span>
+          <button class="btn ghost" data-t="0.2">T = 0.2</button>
+          <button class="btn ghost" data-t="1">T = 1</button>
+          <button class="btn ghost" data-t="2.5">T = 2.5</button>
+        </div>
+        <label>T <input type="range" id="tpT" min=".1" max="3" step=".05" value="1"><span class="v" id="tpTv"></span></label>
+        <div id="tpBars"></div>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:8px"><button class="btn" id="tpSample">Sortear 10 vezes</button><span class="hint" id="tpOut" style="margin:0"></span></div>
+        <div class="mono" id="tpSamples" style="margin-top:6px;font-size:13px;min-height:20px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GERAÇÃO -->
+  <section class="slide">
+    <div class="kicker">O que um LLM realmente faz</div>
+    <h2>Prever o próximo token</h2>
+    <div class="grid">
+      <div>
+        <p>Um LLM é treinado para uma tarefa simples: dado um texto, <em>prever o próximo token</em>. Ele produz uma probabilidade para cada token possível, escolhe um, adiciona ao texto e repete.</p>
+        <p style="margin-top:12px" class="muted">Ajuste a <b>temperatura</b> (slide anterior) e gere de novo: com T baixa o texto sai quase sempre igual; com T alta, cada geração é diferente.</p>
+        <label style="margin-top:12px">temperatura <input type="range" id="temp" min=".1" max="2" step=".05" value="1"><span class="v" id="tempv"></span></label>
+        <div style="display:flex;gap:10px;margin-top:8px"><button class="btn" id="genBtn">Gerar próximo token</button><button class="btn ghost" id="genReset">Reiniciar</button></div>
+      </div>
+      <div class="card">
+        <div class="gen" id="genText"></div>
+        <div id="bars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJETIVO -->
+  <section class="slide">
+    <div class="kicker math">O objetivo de treino</div>
+    <h2>A função que o LLM minimiza</h2>
+    <div class="grid">
+      <div>
+        <p>A probabilidade de um texto inteiro é o produto das probabilidades de cada token, dado o que veio antes:</p>
+        <div class="formula">P(x₁…xₙ) = Πₜ P(xₜ | x₁…xₜ₋₁)</div>
+        <p>Para cada token, a perda é <b>−log</b> da probabilidade que o modelo deu ao token que realmente veio: se deu 90%, a perda é pequena (0.11); se deu 1%, é enorme (4.6). Errar com <em>confiança</em> sai caro. O treino minimiza a média sobre trilhões de tokens:</p>
+        <div class="formula">L = −(1/N) Σₜ log P(xₜ | x&lt;ₜ)</div>
+        <p>E a <b>perplexidade</b> resume isso num número intuitivo: <span class="mono">PPL = e^L</span>, ou seja, "entre quantas opções o modelo hesita, em média". Quanto menor, melhor.</p>
+      </div>
+      <div class="card">
+        <div id="objTable"></div>
+        <div class="readout" id="objOut"></div>
+        <p class="hint">Probabilidades ilustrativas. O gradiente dessa perda, via backpropagation, ajusta bilhões de parâmetros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREINAMENTO -->
+  <section class="slide">
+    <div class="kicker">Da rede bruta ao assistente</div>
+    <h2>Como um LLM é treinado</h2>
+    <div class="steps">
+      <div class="card"><div class="num">ETAPA 1</div><h3>Pré-treinamento</h3><p>Lê trilhões de tokens da internet, livros e código prevendo o próximo token. Aprende gramática, fatos e raciocínio. Custa meses de GPUs.</p></div>
+      <div class="card"><div class="num">ETAPA 2</div><h3>Ajuste fino</h3><p>Treina com exemplos de conversas de alta qualidade (pergunta → boa resposta) para virar um assistente que segue instruções.</p></div>
+      <div class="card"><div class="num">ETAPA 3</div><h3>Feedback e alinhamento</h3><p>Humanos (e outros modelos) avaliam respostas; o modelo é reforçado a ser útil, honesto e seguro (RLHF e técnicas similares).</p></div>
+    </div>
+    <p class="muted" style="margin-top:22px">Escala importa: mais parâmetros, mais dados e mais computação tendem a gerar modelos mais capazes.</p>
+  </section>
+
+  <!-- RESUMO -->
+  <section class="slide">
+    <div class="kicker">Fechando</div>
+    <h2>Resumo e limites</h2>
+    <div class="steps" style="align-items:start">
+      <div class="card">
+        <h3 style="color:var(--accent2)">O que aprendemos</h3>
+        <ul class="clean">
+          <li>Neurônio = produto escalar + ativação.</li>
+          <li>A ativação traz a não linearidade que dá poder às redes.</li>
+          <li>Aprender = reduzir a perda com gradientes.</li>
+          <li>LLM = Transformer gigante que prevê o próximo token.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent3)">Fórmulas-chave</h3>
+        <div class="mono" style="font-size:14px;line-height:2;color:#d6d4ce">
+          h = σ(Wx + b)<br>
+          w ← w − η ∂L/∂w<br>
+          L = −log p<sub>correta</sub><br>
+          softmax(QKᵀ/√d)V<br>
+          pᵢ = e^(zᵢ/T) / Σ e^(zⱼ/T)
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--danger)">Cuidados</h3>
+        <ul class="clean">
+          <li><b>Alucinações:</b> pode afirmar coisas falsas com confiança.</li>
+          <li><b>Vieses</b> herdados dos dados.</li>
+          <li><b>Data de corte</b> do conhecimento.</li>
+          <li>Sempre verifique informações importantes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<nav class="ctrl">
+  <span><span class="counter" id="counter"></span><button class="buildB" id="buildB" title="Liga/desliga a revelação passo a passo"></button></span>
+  <div class="dots" id="dots"></div>
+  <div class="navbtns"><button id="prevB" aria-label="Anterior">←</button><button id="nextB" aria-label="Próximo">→</button></div>
+</nav>
+
+<script>
+// ---------- navegação ----------
+const slides=[...document.querySelectorAll('.slide')];
+const dots=document.getElementById('dots');
+let cur=0;
+let num=0;
+slides.forEach((s,i)=>{
+  const k=s.querySelector('.kicker');
+  if(i>0&&k&&!k.classList.contains('nonum')){num++;k.textContent=String(num).padStart(2,'0')+' · '+k.textContent}
+  const d=document.createElement('i');if(k&&k.classList.contains('math'))d.classList.add('m');if(s.classList.contains('divider'))d.classList.add('d');d.onclick=()=>go(i);dots.appendChild(d);
+});
+document.getElementById('titleKicker').textContent='Aula introdutória · '+slides.length+' slides';
+// ---------- passos (fragments) ----------
+const frags=slides.map(()=>[]);
+let builds=true;try{builds=localStorage.getItem('rn-builds')!=='off'}catch(e){}
+slides.forEach((s,i)=>{
+  s.querySelectorAll('.formula.lines').forEach(f=>{f.innerHTML=f.innerHTML.split(/<br\s*\/?>/i).map(l=>'<span class="ln">'+l+'</span>').join('<br>')});
+  if(i===0)return;
+  const items=[];const push=e=>items.push([e]);
+  const isCtrl=c=>c.matches('label')||(c.matches('div')&&c.querySelector(':scope > button')&&!c.matches('.card'));
+  const collect=box=>{const kids=[...box.children];if(!kids.length){push(box);return}
+    kids.forEach(c=>{
+      if(isCtrl(c)&&items.length)items[items.length-1].push(c);
+      else if(c.matches('ul.clean'))[...c.children].forEach(push);
+      else if(c.matches('.formula.lines')){push(c);[...c.querySelectorAll('.ln')].slice(1).forEach(push)}
+      else push(c)})};
+  [...s.children].forEach(c=>{
+    if(c.matches('.kicker,h1,h2'))return;
+    if(c.matches('.grid'))[...c.children].forEach(col=>col.matches('.card')?push(col):collect(col));
+    else if(c.matches('.steps'))[...c.children].forEach(push);
+    else push(c);
+  });
+  const [lead,...rest]=items;if(lead)lead.forEach(e=>e.classList.add('lead'));
+  rest.forEach(g=>g.forEach(x=>x.classList.add('frag')));frags[i]=rest;
+});
+let step=0;
+const counterEl=document.getElementById('counter'),nextBtn=document.getElementById('nextB'),buildBtn=document.getElementById('buildB');
+function applyFrags(){
+  const f=frags[cur];f.forEach((g,k)=>g.forEach(x=>x.classList.toggle('shown',!builds||k<step)));
+  const total=f.length;
+  counterEl.textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')+(builds&&total?` · passo ${step+1}/${total+1}`:'');
+  nextBtn.classList.toggle('more',builds&&step<total);
+  buildBtn.textContent='passo a passo: '+(builds?'ligado':'desligado');buildBtn.classList.toggle('on',builds);
+}
+function drawIn(node){node.classList.add('drawin');clearTimeout(node._dt);node._dt=setTimeout(()=>node.classList.remove('drawin'),1600)}
+function go(i,all){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  step=all?frags[cur].length:0;
+  slides.forEach((s,k)=>{s.classList.toggle('active',k===cur);s.classList.toggle('prev',k<cur)});
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===cur));
+  document.getElementById('progress').style.width=((cur+1)/slides.length*100)+'%';
+  slides[cur].scrollTop=0;
+  applyFrags();drawIn(slides[cur]);
+}
+function next(){
+  if(builds&&step<frags[cur].length){
+    const g=frags[cur][step++],f=g[0];applyFrags();
+    f.classList.remove('just');void f.offsetWidth;f.classList.add('just');setTimeout(()=>f.classList.remove('just'),1500);
+    g.forEach(x=>{if(x.querySelector('svg'))drawIn(x)});
+    if(f.querySelector('#netSvg'))setTimeout(()=>document.getElementById('fwdBtn').click(),350);
+    setTimeout(()=>g[g.length-1].scrollIntoView({block:'nearest',behavior:'smooth'}),60);
+  } else if(cur<slides.length-1)go(cur+1,false);
+}
+function prev(){if(builds&&step>0){step--;applyFrags()}else if(cur>0)go(cur-1,true)}
+buildBtn.onclick=()=>{builds=!builds;try{localStorage.setItem('rn-builds',builds?'on':'off')}catch(e){}step=frags[cur].length;applyFrags();buildBtn.blur()};
+document.getElementById('prevB').onclick=e=>{prev();e.currentTarget.blur()};
+document.getElementById('nextB').onclick=e=>{next();e.currentTarget.blur()};
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next()}
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev()}
+  if(e.key==='Home'){e.preventDefault();go(0)}
+  if(e.key==='End'){e.preventDefault();go(slides.length-1,true)}
+});
+let tx=null,ty=null;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5&&e.target.tagName!=='INPUT')(dx<0?next():prev());tx=null},{passive:true});
+
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!==undefined)e.textContent=text;parent&&parent.appendChild(e);return e}
+const $=id=>document.getElementById(id);
+const sig=z=>1/(1+Math.exp(-z));
+const f2=v=>v.toFixed(2), f3=v=>v.toFixed(3);
+function pathOf(f,x0,x1,X,Y,step){let d='';for(let x=x0;x<=x1+1e-9;x+=step){const y=f(x);if(!isFinite(y))continue;d+=(d?'L':'M')+X(x).toFixed(1)+','+Y(y).toFixed(1)}return d}
+function axes(s,X,Y,x0,x1,y0,y1){el('line',{x1:X(x0),y1:Y(0),x2:X(x1),y2:Y(0),stroke:'#2a2e38'},s);el('line',{x1:X(0),y1:Y(y0),x2:X(0),y2:Y(y1),stroke:'#2a2e38'},s)}
+
+// ---------- neurônio ----------
+function neuron(){
+  const g=id=>+$(id).value;
+  const x1=g('x1'),x2=g('x2'),w1=g('w1'),w2=g('w2'),b=g('b');
+  ['x1','x2','w1','w2','b'].forEach(id=>$(id+'v').textContent=f2(g(id)));
+  const z=w1*x1+w2*x2+b,y=sig(z);
+  const col=w=>w>=0?'#f2a65a':'#e8746b';
+  $('l1').setAttribute('stroke',col(w1));$('l1').setAttribute('stroke-width',1+Math.abs(w1)*1.5);
+  $('l2').setAttribute('stroke',col(w2));$('l2').setAttribute('stroke-width',1+Math.abs(w2)*1.5);
+  $('out').setAttribute('fill-opacity',.1+y*.85);$('outT').textContent=f2(y);
+  $('zT').textContent='z = '+f2(z)+'  →  σ(z) = '+f2(y);
+}
+['x1','x2','w1','w2','b'].forEach(id=>$(id).addEventListener('input',neuron));neuron();
+
+// ---------- produto escalar ----------
+function dotDraw(){
+  const s=$('dotSvg');s.innerHTML='';const th=+$('ang').value;$('angv').textContent=th+'°';
+  const O=[160,165],R=110,wl=1.2,xl=1.0,r=th*Math.PI/180;
+  const defs=el('defs',{},s);
+  [['aw','#f2a65a'],['ax','#8fa8ff']].forEach(([id,c])=>{const m=el('marker',{id,viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:7,markerHeight:7,orient:'auto'},defs);el('path',{d:'M0,0L10,5L0,10z',fill:c},m)});
+  el('line',{x1:10,y1:O[1],x2:310,y2:O[1],stroke:'#2a2e38'},s);
+  const xe=[O[0]+R*xl*Math.cos(r),O[1]-R*xl*Math.sin(r)];
+  const proj=O[0]+R*xl*Math.cos(r);
+  el('line',{x1:xe[0],y1:xe[1],x2:proj,y2:O[1],stroke:'#9a9ca5','stroke-dasharray':'3 3'},s);
+  el('line',{x1:O[0],y1:O[1]+8,x2:proj,y2:O[1]+8,stroke:'#6cc4a1','stroke-width':4,'stroke-opacity':.8},s);
+  el('line',{x1:O[0],y1:O[1],x2:O[0]+R*wl,y2:O[1],stroke:'#f2a65a','stroke-width':3,'marker-end':'url(#aw)'},s);
+  el('line',{x1:O[0],y1:O[1],x2:xe[0],y2:xe[1],stroke:'#8fa8ff','stroke-width':3,'marker-end':'url(#ax)'},s);
+  el('text',{x:O[0]+R*wl-4,y:O[1]-8,fill:'#f2a65a','font-size':14,'text-anchor':'end'},s,'w (pesos)');
+  el('text',{x:xe[0]+(th>90?-8:8),y:xe[1]-6,fill:'#8fa8ff','font-size':14,'text-anchor':th>90?'end':'start'},s,'x (entrada)');
+  el('text',{x:O[0],y:O[1]+28,fill:'#6cc4a1','font-size':11,'text-anchor':th>90?'end':'start'},s,'projeção de x sobre w');
+  const dp=wl*xl*Math.cos(r);
+  const txt=th<30?'muito alinhados: neurônio dispara forte':th<80?'parcialmente alinhados':th<=100?'quase perpendiculares: ≈ 0':'apontam em sentidos opostos: negativo';
+  $('dotOut').innerHTML=`w·x = ‖w‖‖x‖cos θ = 1.2 × 1.0 × ${f2(Math.cos(r))} = <b>${f2(dp)}</b><br><span class="muted">${txt}</span>`;
+}
+$('ang').addEventListener('input',dotDraw);dotDraw();
+
+// ---------- ativação 1: anel ----------
+(function(){
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const pts=[];
+  for(let i=0;i<70;i++){const a=rnd()*6.283,r=Math.sqrt(rnd())*0.42;pts.push([r*Math.cos(a),r*Math.sin(a),1])}
+  for(let i=0;i<90;i++){const a=rnd()*6.283,r=0.66+rnd()*0.3;pts.push([r*Math.cos(a),r*Math.sin(a),0])}
+  // melhor reta possível (força bruta)
+  let best={acc:0};
+  for(let ai=0;ai<72;ai++){const a=ai*Math.PI/36,nx=Math.cos(a),ny=Math.sin(a);
+    for(let c=-1;c<=1;c+=.025){let ok=0;pts.forEach(([x,y,l])=>{if(((nx*x+ny*y)<c?1:0)===l)ok++});const acc=ok/pts.length;if(acc>best.acc)best={acc,nx,ny,c}}}
+  const P=v=>150+v*135;
+  let mode='lin';
+  function draw(){
+    const s=$('ringSvg');s.innerHTML='';const N=30,cs=300/N;
+    for(let i=0;i<N;i++)for(let j=0;j<N;j++){const x=((i+.5)*cs-150)/135,y=((j+.5)*cs-150)/135;
+      const pred=mode==='lin'?((best.nx*x+best.ny*y)<best.c?1:0):(Math.hypot(x,y)<0.54?1:0);
+      el('rect',{x:i*cs,y:j*cs,width:cs+.5,height:cs+.5,fill:pred?'#f2a65a':'#8fa8ff','fill-opacity':.13},s)}
+    if(mode==='lin'){const px=-best.ny,py=best.nx,cx=best.nx*best.c,cy=best.ny*best.c;
+      el('line',{x1:P(cx-px*2),y1:P(cy-py*2),x2:P(cx+px*2),y2:P(cy+py*2),stroke:'#eceae4','stroke-width':2,'stroke-dasharray':'6 4'},s)}
+    else el('circle',{cx:150,cy:150,r:0.54*135,fill:'none',stroke:'#eceae4','stroke-width':2,'stroke-dasharray':'6 4'},s);
+    pts.forEach(([x,y,l])=>el('circle',{cx:P(x),cy:P(y),r:4.2,fill:l?'#f2a65a':'#8fa8ff',stroke:'#0f1115','stroke-width':1},s));
+    $('ringOut').innerHTML=mode==='lin'
+      ?`Melhor <b>reta</b> possível: <b>${Math.round(best.acc*100)}%</b> de acerto<br><span class="muted">Nenhuma linha reta separa o círculo do anel.</span>`
+      :`Fronteira <b>curva</b>: <b>100%</b> de acerto<br><span class="muted">A não linearidade permite "contornar" os pontos laranja.</span>`;
+    $('ringLin').classList.toggle('on',mode==='lin');$('ringNon').classList.toggle('on',mode!=='lin');
+  }
+  $('ringLin').onclick=()=>{mode='lin';draw()};$('ringNon').onclick=()=>{mode='non';draw()};draw();
+})();
+
+// ---------- ativação 2: explorador ----------
+(function(){
+  const gelu=z=>0.5*z*(1+Math.tanh(Math.sqrt(2/Math.PI)*(z+0.044715*z**3)));
+  const num=f=>z=>(f(z+1e-4)-f(z-1e-4))/2e-4;
+  const F={
+    'Degrau':{f:z=>z>0?1:0,d:z=>0,c:'#e8746b',fx:'f(z) = 1 se z > 0, senão 0',faixa:'{0, 1}',
+      an:'Um <b>interruptor</b>: liga ou desliga, sem meio-termo.',
+      pro:'Simples e fácil de interpretar. Usada no Perceptron original (1958).',
+      con:'A derivada é zero em todo lugar: o gradiente não diz para onde ajustar os pesos, então a rede <b>não consegue aprender</b> por gradiente descendente.'},
+    'Sigmoide':{f:sig,d:z=>sig(z)*(1-sig(z)),c:'#f2a65a',fx:'σ(z) = 1 / (1 + e⁻ᶻ)',faixa:'(0, 1)',
+      an:'Um <b>dimmer</b>: em vez de liga/desliga, gira suavemente do apagado ao aceso.',
+      pro:'Suave e diferenciável. A saída pode ser lida como uma probabilidade.',
+      con:'Satura nas pontas: para z muito grande ou pequeno, a derivada ≈ 0 (máx. 0.25). Em redes profundas o gradiente vai sumindo camada a camada (<b>vanishing gradient</b>).'},
+    'Tanh':{f:Math.tanh,d:z=>1-Math.tanh(z)**2,c:'#d4a5f2',fx:'tanh(z) = (eᶻ − e⁻ᶻ) / (eᶻ + e⁻ᶻ)',faixa:'(−1, 1)',
+      an:'Um dimmer que também vai ao <b>negativo</b>: −1 (contra), 0 (neutro), +1 (a favor).',
+      pro:'Centrada em zero, o que costuma acelerar o treino em relação à sigmoide.',
+      con:'Também satura nas pontas e sofre de gradientes que somem.'},
+    'ReLU':{f:z=>Math.max(0,z),d:z=>z>0?1:0,c:'#6cc4a1',fx:'ReLU(z) = max(0, z)',faixa:'[0, ∞)',
+      an:'Um <b>porteiro</b>: negativos não passam; positivos passam intactos.',
+      pro:'Baratíssima de calcular. Derivada = 1 para z > 0, então o gradiente não some. Tornou viável o deep learning moderno (~2012).',
+      con:'Se um neurônio só recebe z negativo, a derivada é 0 e ele para de aprender ("neurônio morto").'},
+    'GELU':{f:gelu,d:num(gelu),c:'#8fa8ff',fx:'GELU(z) = z · Φ(z)',faixa:'≈ (−0.17, ∞)',
+      an:'Um porteiro <b>gentil</b>: em vez de barrar de vez, deixa passar uma fração conforme a "chance" de z ser positivo.',
+      pro:'Versão suave da ReLU, sem quina em zero. Padrão em Transformers como BERT e GPT (variantes como SwiGLU também são comuns).',
+      con:'Um pouco mais cara de calcular que a ReLU.'}
+  };
+  let cur='Sigmoide';
+  const pills=$('actPills');
+  Object.keys(F).forEach(k=>{const p=document.createElement('span');p.className='pill';p.textContent=k;p.onclick=()=>{cur=k;draw()};pills.appendChild(p)});
+  const X=z=>180+z*40,Y=y=>170-y*55;
+  function draw(){
+    const s=$('actSvg');s.innerHTML='';const fn=F[cur];const z=+$('actZ').value;$('actZv').textContent=f2(z);
+    [...pills.children].forEach(p=>p.classList.toggle('on',p.textContent===cur));
+    const defs=el('defs',{},s);const cp=el('clipPath',{id:'cpA'},defs);el('rect',{x:0,y:8,width:360,height:240},cp);
+    for(let g=-4;g<=4;g++)el('line',{x1:X(g),y1:10,x2:X(g),y2:240,stroke:'#1d2028'},s);
+    axes(s,X,Y,-4.4,4.4,-1.25,2.9);
+    [1,-1,2].forEach(v=>{el('line',{x1:X(-4.4),y1:Y(v),x2:X(4.4),y2:Y(v),stroke:'#1d2028'},s);el('text',{x:X(0)-5,y:Y(v)+4,fill:'#5d606a','font-size':10,'text-anchor':'end'},s,v)});
+    const g=el('g',{'clip-path':'url(#cpA)'},s);
+    el('path',{d:pathOf(fn.d,-4.4,4.4,X,Y,.02),fill:'none',stroke:fn.c,'stroke-width':2,'stroke-dasharray':'5 4','stroke-opacity':.6},g);
+    el('path',{d:pathOf(fn.f,-4.4,4.4,X,Y,.02),fill:'none',stroke:fn.c,'stroke-width':3.5,'stroke-linecap':'round'},g);
+    const y=fn.f(z),dy=fn.d(z);
+    el('line',{x1:X(z),y1:Y(0),x2:X(z),y2:Y(y),stroke:'#eceae4','stroke-dasharray':'2 3','stroke-opacity':.6},g);
+    el('circle',{cx:X(z),cy:Y(y),r:7,fill:fn.c,stroke:'#0f1115','stroke-width':2},g);
+    el('text',{x:352,y:Y(0)-6,fill:'#9a9ca5','font-size':11,'text-anchor':'end'},s,'z');
+    $('actOut').innerHTML=`z = ${f2(z)} → f(z) = <b>${f3(y)}</b> · f′(z) = <b>${f3(dy)}</b>`;
+    $('actInfo').innerHTML=`<h3 style="color:${fn.c}">${cur}</h3>
+      <div class="formula" style="margin:8px 0">${fn.fx}<br><span class="c">saída em ${fn.faixa}</span></div>
+      <p>${fn.an}</p>
+      <p style="margin-top:8px"><span style="color:var(--accent2)">✓</span> ${fn.pro}</p>
+      <p style="margin-top:6px"><span style="color:var(--danger)">✗</span> ${fn.con}</p>`;
+  }
+  $('actZ').addEventListener('input',draw);draw();
+})();
+
+// ---------- ativação 3: soma de ReLUs ----------
+(function(){
+  const g=x=>Math.sin(x)+0.15*x, x0=0,x1=2*Math.PI;
+  const X=x=>25+x/x1*320, Y=y=>120-y*55;
+  function draw(){
+    const N=+$('uatN').value;$('uatNv').textContent=N;
+    const s=$('uatSvg');s.innerHTML='';axes(s,X,Y,0,x1,-1.6,1.9);
+    const k=[...Array(N+1)].map((_,i)=>x0+i*(x1-x0)/N);
+    const sl=k.slice(0,-1).map((c,i)=>(g(k[i+1])-g(c))/(k[i+1]-c));
+    const coef=sl.map((v,i)=>i===0?v:v-sl[i-1]);
+    const relu=v=>Math.max(0,v);
+    const f=x=>g(x0)+coef.reduce((a,c,i)=>a+c*relu(x-k[i]),0);
+    // dobras individuais (até 8 para não poluir)
+    coef.slice(0,8).forEach((c,i)=>el('path',{d:pathOf(x=>g(x0)*0+c*relu(x-k[i])*0.35-1.25,0,x1,X,Y,.05),fill:'none',stroke:'#6cc4a1','stroke-opacity':.35,'stroke-width':1.2},s));
+    el('path',{d:pathOf(g,0,x1,X,Y,.02),fill:'none',stroke:'#8fa8ff','stroke-width':2,'stroke-dasharray':'5 4'},s);
+    el('path',{d:pathOf(f,0,x1,X,Y,.01),fill:'none',stroke:'#f2a65a','stroke-width':3},s);
+    k.slice(0,-1).forEach(c=>el('circle',{cx:X(c),cy:Y(f(c)),r:3.5,fill:'#f2a65a'},s));
+    el('text',{x:30,y:18,fill:'#8fa8ff','font-size':11},s,'- - curva alvo');
+    el('text',{x:120,y:18,fill:'#f2a65a','font-size':11},s,'— soma de ReLUs');
+    el('text',{x:230,y:18,fill:'#6cc4a1','font-size':11},s,'— dobras individuais');
+    let err=0;for(let i=0;i<=400;i++){const x=x1*i/400;err+=Math.abs(f(x)-g(x))}
+    $('uatOut').innerHTML=`${N} neurônio${N>1?'s':''} ReLU · erro médio = <b>${f3(err/401)}</b>`;
+  }
+  $('uatN').addEventListener('input',draw);draw();
+})();
+
+// ---------- rede em camadas ----------
+const layers=[3,5,5,2];
+function drawNet(active){
+  const s=$('netSvg');s.innerHTML='';
+  const pos=layers.map((n,li)=>Array.from({length:n},(_,i)=>[40+li*100,125+(i-(n-1)/2)*44]));
+  for(let li=0;li<layers.length-1;li++)pos[li].forEach(a=>pos[li+1].forEach(b=>{
+    el('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:li<active?'#f2a65a':'#2a2e38','stroke-opacity':li<active?.55:1,'stroke-width':1.2},s)}));
+  pos.forEach((L,li)=>L.forEach(p=>el('circle',{cx:p[0],cy:p[1],r:13,fill:li<=active?'#f2a65a':'#171a21','fill-opacity':li<=active?.85:1,stroke:li===0?'#8fa8ff':li===layers.length-1?'#6cc4a1':'#f2a65a','stroke-width':2},s)));
+  ['entrada','oculta','oculta','saída'].forEach((t,li)=>el('text',{x:40+li*100,y:250,fill:'#9a9ca5','font-size':11,'text-anchor':'middle'},s,t));
+}
+drawNet(-1);
+let fwdTimer=null;
+$('fwdBtn').onclick=()=>{clearInterval(fwdTimer);let a=0;drawNet(0);fwdTimer=setInterval(()=>{a++;drawNet(a);if(a>=layers.length-1)clearInterval(fwdTimer)},550)};
+
+// ---------- ponte (divisor) ----------
+(function(){
+  const s=$('bridgeSvg');const L=[[3,20],[4,80],[4,140],[2,200]];
+  const pos=L.map(([n,x])=>Array.from({length:n},(_,i)=>[x+20,60+(i-(n-1)/2)*26]));
+  for(let l=0;l<pos.length-1;l++)pos[l].forEach(a=>pos[l+1].forEach(b=>el('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:'#3a3f4b','stroke-width':1},s)));
+  pos.flat().forEach(([x,y])=>el('circle',{cx:x,cy:y,r:8,fill:'#171a21',stroke:'#8fa8ff','stroke-width':2},s));
+  el('path',{d:'M250,60 C380,10 470,110 600,60',fill:'none',stroke:'#f2a65a','stroke-width':3,'stroke-dasharray':'8 4',class:'flow'},s);
+  el('text',{x:425,y:105,fill:'#9a9ca5','font-size':13,'text-anchor':'middle'},s,'+ escala + atenção + texto');
+  const toks=['O','·gato','·subiu','·no','?'];let x=615;
+  toks.forEach((t,i)=>{const w=t.length*9+18;const last=i===toks.length-1;
+    el('rect',{x,y:44,width:w,height:32,rx:7,fill:last?'rgba(242,166,90,.2)':'#171a21',stroke:last?'#f2a65a':'#2a2e38'},s);
+    el('text',{x:x+w/2,y:65,fill:last?'#f2a65a':'#eceae4','font-size':14,'text-anchor':'middle','font-family':'JetBrains Mono'},s,t);x+=w+6});
+})();
+
+// ---------- matriz ----------
+(function(){
+  const W=[[0.2,-0.5,1.0],[0.7,0.1,-0.3]],x=[2,1,3],b=[0.1,-0.2];
+  const z=W.map((r,i)=>r.reduce((a,w,j)=>a+w*x[j],0)+b[i]);const h=z.map(v=>Math.max(0,v));
+  const mx=(rows,cls)=>`<div class="mx ${cls||''}" style="grid-template-columns:repeat(${rows[0].length},auto)">${rows.flat().map((v,k)=>`<span data-r="${Math.floor(k/rows[0].length)}">${v}</span>`).join('')}</div>`;
+  $('mxBox').innerHTML=`<div style="text-align:center"><div class="hint" style="margin:0 0 4px">W</div>${mx(W,'mW')}</div><span class="op">·</span>
+   <div style="text-align:center"><div class="hint" style="margin:0 0 4px">x</div>${mx(x.map(v=>[v]))}</div><span class="op">+</span>
+   <div style="text-align:center"><div class="hint" style="margin:0 0 4px">b</div>${mx(b.map(v=>[v]),'mb')}</div><span class="op">=</span>
+   <div style="text-align:center"><div class="hint" style="margin:0 0 4px">z</div>${mx(z.map(v=>[f2(v)]),'mz')}</div><span class="op">→ReLU→</span>
+   <div style="text-align:center"><div class="hint" style="margin:0 0 4px">h</div>${mx(h.map(v=>[f2(v)]),'mh')}</div>`;
+  const show=r=>{document.querySelectorAll('#mxBox .mW span, #mxBox .mb span, #mxBox .mz span, #mxBox .mh span').forEach(s=>s.classList.toggle('hl',+s.dataset.r===r));
+    $('mxOut').innerHTML=`z<sub>${r+1}</sub> = ${W[r].map((w,j)=>`${w}·${x[j]}`).join(' + ')} + ${b[r]} = <b>${f2(z[r])}</b>`};
+  document.querySelectorAll('#mxBox .mz span, #mxBox .mh span').forEach(s=>{s.style.cursor='pointer';s.addEventListener('mouseenter',()=>show(+s.dataset.r));s.addEventListener('click',()=>show(+s.dataset.r))});
+  show(0);
+})();
+
+// ---------- erro quadrático ----------
+function ceDraw(){
+  const p=+$('mseP').value;$('msePv').textContent=f2(p);
+  const s=$('mseSvg');s.innerHTML='';const y=3,X=v=>30+v*52,Y=v=>200-v*18;
+  axes(s,X,Y,0,6.2,0,9.8);
+  el('path',{d:pathOf(v=>(y-v)**2,0,6,X,Y,.03),fill:'none',stroke:'#8fa8ff','stroke-width':3},s);
+  el('line',{x1:X(y),y1:Y(0),x2:X(y),y2:Y(9.6),stroke:'#6cc4a1','stroke-dasharray':'4 4'},s);
+  el('text',{x:X(y),y:14,fill:'#6cc4a1','font-size':11,'text-anchor':'middle'},s,'resposta certa y = 3');
+  const L=(y-p)**2;
+  el('line',{x1:X(p),y1:Y(0)+10,x2:X(y),y2:Y(0)+10,stroke:'#e8746b','stroke-width':4,'stroke-opacity':.8},s);
+  el('line',{x1:X(p),y1:Y(0),x2:X(p),y2:Y(L),stroke:'#eceae4','stroke-dasharray':'2 3'},s);
+  el('circle',{cx:X(p),cy:Y(L),r:7,fill:'#f2a65a'},s);
+  el('text',{x:340,y:225,fill:'#9a9ca5','font-size':11,'text-anchor':'end'},s,'palpite ŷ →');
+  el('text',{x:36,y:30,fill:'#9a9ca5','font-size':11},s,'perda (y − ŷ)²');
+  const e=Math.abs(y-p);
+  const msg=e<.15?'quase perfeito: perda ≈ 0':e<1?'perto: perda pequena':e<2?'longe: a perda cresce rápido':'muito longe: perda grande';
+  $('mseOut').innerHTML=`erro = ${f2(y)} − ${f2(p)} = ${f2(y-p)} → L = <b>${f2(L)}</b><br><span class="muted">${msg}</span>`;
+}
+$('mseP').addEventListener('input',ceDraw);ceDraw();
+
+// ---------- gradiente descendente ----------
+const loss=w=>0.5*(w-1)**2+0.25*Math.sin(3*w)+0.6, dloss=w=>(w-1)+0.75*Math.cos(3*w);
+let gw=-2.2,gpath=[];
+function drawGD(){
+  const s=$('gdSvg');s.innerHTML='';
+  const X=w=>30+(w+3)*50, Y=l=>210-l*32;
+  el('path',{d:pathOf(loss,-3,3.6,X,Y,.03),fill:'none',stroke:'#8fa8ff','stroke-width':3},s);
+  gpath.forEach((w,i)=>{if(i)el('line',{x1:X(gpath[i-1]),y1:Y(loss(gpath[i-1])),x2:X(w),y2:Y(loss(w)),stroke:'#f2a65a','stroke-dasharray':'3 3','stroke-opacity':.6},s)});
+  if(gpath.length)el('line',{x1:X(gpath[gpath.length-1]),y1:Y(loss(gpath[gpath.length-1])),x2:X(gw),y2:Y(loss(gw)),stroke:'#f2a65a','stroke-dasharray':'3 3','stroke-opacity':.6},s);
+  const sl=dloss(gw);el('line',{x1:X(gw-.5),y1:Y(loss(gw)-.5*sl),x2:X(gw+.5),y2:Y(loss(gw)+.5*sl),stroke:'#6cc4a1','stroke-width':2},s);
+  el('circle',{cx:X(gw),cy:Y(loss(gw)),r:9,fill:'#f2a65a'},s);
+  el('text',{x:340,y:225,fill:'#9a9ca5','font-size':11,'text-anchor':'end'},s,'peso w →');
+  el('text',{x:30,y:20,fill:'#9a9ca5','font-size':11},s,'perda L');
+  el('text',{x:340,y:20,fill:'#6cc4a1','font-size':11,'text-anchor':'end'},s,'— inclinação ∂L/∂w');
+  $('gdInfo').textContent=`w = ${f3(gw)}   L = ${f3(loss(gw))}   ∂L/∂w = ${f3(sl)}   passos = ${gpath.length}`;
+}
+function lrUpd(){$('lrv').textContent=f2(+$('lr').value)}
+$('lr').addEventListener('input',lrUpd);lrUpd();
+$('gdStep').onclick=()=>{gpath.push(gw);gw=Math.max(-3,Math.min(3.6,gw-(+$('lr').value)*dloss(gw)));drawGD()};
+$('gdReset').onclick=()=>{gw=-2.2;gpath=[];drawGD()};
+drawGD();
+
+// ---------- backprop ----------
+(function(){
+  const N={x:[45,50,'x','2','−18'],w:[45,135,'w','3','−12'],b:[45,205,'b','1','−6'],
+           m:[150,92,'×','w·x = 6','−6'],z:[245,140,'+','z = 7','−6'],y:[245,40,'y','10',''],L:[335,95,'(z−y)²','L = 9','1']};
+  const E=[['x','m'],['w','m'],['m','z'],['b','z'],['z','L'],['y','L']];
+  let mode='f';
+  function draw(){
+    const s=$('bpSvg');s.innerHTML='';const back=mode==='b';
+    const defs=el('defs',{},s);[['af','#8fa8ff'],['ab','#f2a65a']].forEach(([id,c])=>{const m=el('marker',{id,viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:6,markerHeight:6,orient:'auto'},defs);el('path',{d:'M0,0L10,5L0,10z',fill:c},m)});
+    E.forEach(([a,b])=>{let [x1,y1]=N[a],[x2,y2]=N[b];if(back&&b==='L'&&a==='y')return;if(back){[x1,y1,x2,y2]=[x2,y2,x1,y1]}
+      const dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy),r1=b==='L'&&!back||a==='L'&&back?22:20;
+      el('line',{x1:x1+dx/l*20,y1:y1+dy/l*20,x2:x2-dx/l*24,y2:y2-dy/l*24,stroke:back?'#f2a65a':'#8fa8ff','stroke-width':2,'stroke-dasharray':back?'5 3':'','marker-end':back?'url(#ab)':'url(#af)'},s)});
+    Object.entries(N).forEach(([k,[x,y,lab,fv,bv]])=>{
+      const op=['m','z','L'].includes(k);
+      el(op?'rect':'circle',op?{x:x-24,y:y-17,width:48,height:34,rx:8,fill:'#171a21',stroke:'#9a9ca5','stroke-width':1.5}:{cx:x,cy:y,r:18,fill:'#171a21',stroke:k==='y'?'#6cc4a1':'#8fa8ff','stroke-width':2},s);
+      el('text',{x,y:y+4,fill:'#eceae4','font-size':k==='L'?10:13,'text-anchor':'middle'},s,lab);
+      const t=back?(bv?('∂L/∂'+(k==='m'?'(wx)':k)+' = '+bv):''):fv;
+      if(t)el('text',{x,y:y+34,fill:back?'#f2a65a':'#8fa8ff','font-size':11.5,'text-anchor':'middle','font-family':'JetBrains Mono'},s,t);
+    });
+    $('bpHint').innerHTML=back?'Na volta, cada nó multiplica o gradiente que recebe pela sua derivada local. Ex.: ∂L/∂w = ∂L/∂(wx) · x = (−6)·2 = −12.':'Na ida, calculamos os valores da entrada até a perda.';
+    $('bpF').classList.toggle('on',!back);$('bpB').classList.toggle('on',back);
+  }
+  $('bpF').onclick=()=>{mode='f';draw()};$('bpB').onclick=()=>{mode='b';draw()};draw();
+})();
+
+// ---------- tokens / embeddings ----------
+(function(){
+  const t=['Intel','igência',' artificial',' é',' incr','ível'];
+  const cols=['#f2a65a','#6cc4a1','#8fa8ff','#e8746b','#d4a5f2','#f2d65a'];
+  $('toks').innerHTML=t.map((x,i)=>`<span class="tok" style="background:${cols[i]}22;border:1px solid ${cols[i]};color:${cols[i]}">${x.replace(' ','·')}</span>`).join('')+
+   `<div class="hint mono" style="margin-top:10px">IDs (ilustrativos): [8421, 5530, 23410, 1279, 4410, 12087]</div>`;
+  const s=$('embSvg');
+  const groups=[['#f2a65a',[['rei',70,60],['rainha',110,48],['príncipe',85,95]]],
+                ['#6cc4a1',[['gato',250,70],['cachorro',290,95],['leão',240,115]]],
+                ['#8fa8ff',[['Paris',90,190],['Roma',140,215],['Lisboa',70,225]]],
+                ['#e8746b',[['correr',260,195],['andar',300,175],['pular',280,225]]]];
+  groups.forEach(([c,pts])=>pts.forEach(([n,x,y])=>{el('circle',{cx:x,cy:y,r:5,fill:c},s);el('text',{x:x+8,y:y+4,fill:'#eceae4','font-size':12},s,n)}));
+})();
+
+// ---------- cosseno ----------
+(function(){
+  const V={rei:[0.95,0.9,1],rainha:[0.95,0.1,1],homem:[0.05,0.9,1],mulher:[0.05,0.1,1],'maçã':[0,0.5,0.3]};
+  let A='rei',B='rainha';
+  const mk=(id,get,set,cls)=>{const box=$(id);box.innerHTML='';Object.keys(V).forEach(k=>{const p=document.createElement('span');p.className='pill';p.textContent=k;p.onclick=()=>{set(k);draw()};box.appendChild(p)});};
+  mk('cosA',()=>A,k=>A=k);mk('cosB',()=>B,k=>B=k);
+  const dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0),nrm=a=>Math.sqrt(dot(a,a));
+  function draw(){
+    [...$('cosA').children].forEach(p=>p.classList.toggle('on',p.textContent===A));
+    [...$('cosB').children].forEach(p=>p.classList.toggle('on2',p.textContent===B));
+    const a=V[A],b=V[B],d=dot(a,b),c=d/(nrm(a)*nrm(b));
+    const w=Math.max(0,c)*100;
+    $('cosOut').innerHTML=`<span style="color:var(--accent)">${A}</span> = [${a.join(', ')}]<br><span style="color:var(--accent3)">${B}</span> = [${b.join(', ')}]<br>
+      a·b = ${f3(d)} · ‖a‖ = ${f3(nrm(a))} · ‖b‖ = ${f3(nrm(b))}<br>cos θ = <b>${f3(c)}</b>
+      <div class="track" style="height:12px;background:#0b0d11;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin-top:6px"><div style="height:100%;width:${w}%;background:var(--accent2);transition:width .3s"></div></div>`;
+  }
+  draw();
+})();
+
+// ---------- atenção (palavras) ----------
+(function(){
+  const w=['O','gato','subiu','no','muro','porque','ele','estava','assustado'];
+  const A={6:[.02,.62,.05,.01,.12,.04,.06,.03,.05],8:[.02,.45,.04,.01,.05,.06,.25,.08,.04],2:[.05,.48,.1,.08,.22,.02,.02,.01,.02],4:[.03,.1,.3,.35,.12,.03,.02,.02,.03]};
+  const box=$('attWords'),s=$('attSvg');
+  box.innerHTML=w.map((x,i)=>`<span class="pill" data-i="${i}">${x}</span>`).join('');
+  const pills=[...box.children];
+  function show(i){
+    let a=A[i];if(!a)a=w.map((_,j)=>j===i?.4:.6/(w.length-1));
+    pills.forEach((p,j)=>{p.classList.toggle('on',j===i);p.style.background=j===i?'transparent':`rgba(242,166,90,${a[j]*1.4})`;p.style.color=a[j]>.3&&j!==i?'#1a1205':''});
+    const others=a.map((v,j)=>j===i?-1:v);
+    s.innerHTML='';el('text',{x:0,y:24,fill:'#9a9ca5','font-size':12},s,`"${w[i]}" presta mais atenção em: "${w[others.indexOf(Math.max(...others))]}" (pesos ilustrativos)`);
+  }
+  pills.forEach(p=>{p.addEventListener('mouseenter',()=>show(+p.dataset.i));p.addEventListener('click',()=>show(+p.dataset.i))});
+  show(6);
+})();
+
+// ---------- atenção (matemática) ----------
+(function(){
+  const q=[1.0,0.8];
+  const T=[['gato',[1.2,0.9],[1,0]],['muro',[0.1,-0.4],[0,1]],['ele',[0.6,0.3],[0.5,0.5]]];
+  const sc=T.map(([,k])=>(q[0]*k[0]+q[1]*k[1]));const ss=sc.map(v=>v/Math.SQRT2);
+  const ex=ss.map(Math.exp),S=ex.reduce((a,b)=>a+b),al=ex.map(v=>v/S);
+  const out=[0,1].map(d=>T.reduce((a,t,i)=>a+al[i]*t[2][d],0));
+  $('attTable').innerHTML=`<table class="t"><tr><th>token</th><th>k</th><th>q·k</th><th>÷√2</th><th>softmax</th><th>v</th></tr>
+    ${T.map((t,i)=>`<tr><td>${t[0]}</td><td>[${t[1].join(', ')}]</td><td>${f2(sc[i])}</td><td>${f2(ss[i])}</td><td style="color:var(--accent)">${f2(al[i])}</td><td>[${t[2].join(', ')}]</td></tr>`).join('')}
+    <tr class="sum"><td>soma</td><td></td><td></td><td></td><td>1.00</td><td></td></tr></table>`;
+  $('attRes').innerHTML=`saída = Σ αᵢ·vᵢ = [<b>${f2(out[0])}</b>, <b>${f2(out[1])}</b>]<br><span class="muted">O novo vetor de "ele" fica carregado de informação de "gato" (${Math.round(al[0]*100)}%).</span>`;
+})();
+
+// ---------- softmax ----------
+const SM=[['azul',3.0],['nublado',2.0],['lindo',1.0],['verde',0.0]];
+(function(){
+  const e=SM.map(([,z])=>Math.exp(z)),S=e.reduce((a,b)=>a+b);
+  $('smTable').innerHTML=`<table class="t"><tr><th>token</th><th>logit z</th><th>passo 1: e^z</th><th>passo 2: p</th><th style="width:28%"></th></tr>
+    ${SM.map(([t,z],i)=>`<tr><td>${t}</td><td>${f2(z)}</td><td>${f2(e[i])}</td><td style="color:var(--accent)">${(e[i]/S*100).toFixed(1)}%</td>
+    <td><div style="height:10px;background:#0b0d11;border-radius:5px;overflow:hidden"><div style="height:100%;width:${e[i]/S*100}%;background:var(--accent)"></div></div></td></tr>`).join('')}
+    <tr class="sum"><td>Σ</td><td></td><td>${f2(S)}</td><td>100%</td><td></td></tr></table>`;
+})();
+
+// ---------- temperatura ----------
+(function(){
+  const probs=T=>{const e=SM.map(([,z])=>Math.exp(z/T)),S=e.reduce((a,b)=>a+b);return e.map(v=>v/S)};
+  function draw(){
+    const T=+$('tpT').value;$('tpTv').textContent=f2(T);const p=probs(T);
+    document.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',Math.abs(+b.dataset.t-T)<.03));
+    $('tpBars').innerHTML=SM.map(([t,z],i)=>`<div class="bar"><span class="w">${t}</span><div class="track"><div class="fill" style="width:${p[i]*100}%"></div></div><span class="p">${(p[i]*100).toFixed(1)}%</span></div>`).join('');
+    $('tpOut').textContent=T<.5?'muito previsível':T<.9?'previsível':T<=1.1?'neutro':T<2?'criativo':'muito criativo';
+  }
+  $('tpT').addEventListener('input',()=>{draw();$('tpSamples').innerHTML=''});
+  document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{$('tpT').value=b.dataset.t;draw();$('tpSamples').innerHTML='';b.blur()});
+  $('tpSample').onclick=e=>{const p=probs(+$('tpT').value);const out=[];
+    for(let k=0;k<10;k++){let r=Math.random(),c=0;for(let i=0;i<p.length;i++){c+=p[i];if(r<=c||i===p.length-1){out.push(SM[i][0]);break}}}
+    const n=new Set(out).size;
+    $('tpSamples').innerHTML=out.map(w=>`<span style="color:${w==='azul'?'var(--accent)':'var(--accent3)'}">${w}</span>`).join(' · ')+` <span class="muted">(${n} diferente${n>1?'s':''})</span>`;
+    e.currentTarget.blur()};
+  draw();
+})();
+
+// ---------- geração ----------
+const tree={
+  'O céu está':[['azul',4.0],['nublado',2.8],['lindo',2.2],['escuro',1.8],['caindo',0.2]],
+  'azul':[['hoje',3.2],['e',2.6],['como',2.0],['.',2.4],['demais',1.0]],
+  'nublado':[['hoje',3.0],['e',2.4],['.',2.6],['desde',1.5],['demais',0.8]],
+  'lindo':[['hoje',3.4],['.',2.6],['e',2.0],['demais',1.6],['como',1.0]],
+  'escuro':[['hoje',2.6],['e',2.4],['.',2.8],['demais',1.4],['desde',1.0]],
+  'caindo':[['!',3],['.',2.5],['hoje',1.5],['e',1],['demais',.5]],
+  '_':[['.',3.2],['e',2.2],['sem',1.8],['com',1.6],['muito',1.2]]
+};
+let gen=['O céu está'];
+function dist(){const key=gen.length===1?'O céu está':(tree[gen[gen.length-1]]?gen[gen.length-1]:'_');
+  const T=+$('temp').value;const l=tree[key];const ex=l.map(([,z])=>Math.exp(z/T));const S=ex.reduce((a,b)=>a+b);return l.map(([t],i)=>[t,ex[i]/S])}
+function renderGen(){
+  $('genText').innerHTML=gen.map((t,i)=>i===gen.length-1&&i>0?`<span class="new">${t}</span>`:t).join(' ')+' <span class="muted">▍</span>';
+  const d=dist();$('bars').innerHTML=d.map(([t,p])=>`<div class="bar"><span class="w">${t}</span><div class="track"><div class="fill" style="width:${p*100}%"></div></div><span class="p">${(p*100).toFixed(1)}%</span></div>`).join('');
+}
+function tUpd(){$('tempv').textContent=f2(+$('temp').value);renderGen()}
+$('temp').addEventListener('input',tUpd);
+$('genBtn').onclick=()=>{if(gen.length>7)return;const d=dist();let r=Math.random(),c=0;for(const [t,p] of d){c+=p;if(r<=c){gen.push(t);break}}renderGen()};
+$('genReset').onclick=()=>{gen=['O céu está'];renderGen()};
+tUpd();
+
+// ---------- objetivo ----------
+(function(){
+  const R=[['O','gato',0.05],['O gato','subiu',0.20],['O gato subiu','no',0.60],['O gato subiu no','muro',0.30]];
+  const nl=R.map(r=>-Math.log(r[2]));const L=nl.reduce((a,b)=>a+b)/nl.length;
+  $('objTable').innerHTML=`<table class="t"><tr><th>contexto</th><th>próximo</th><th>P</th><th>−log P</th></tr>
+    ${R.map((r,i)=>`<tr><td class="muted">${r[0]}</td><td style="color:var(--accent)">${r[1]}</td><td>${f2(r[2])}</td><td>${f3(nl[i])}</td></tr>`).join('')}</table>`;
+  $('objOut').innerHTML=`L = média = <b>${f3(L)}</b> · PPL = e^L = <b>${f2(Math.exp(L))}</b><br><span class="muted">≈ o modelo hesita entre ~${Math.round(Math.exp(L))} opções por token</span>`;
+})();
+
+go(0);
+</script>
+</body>
+</html>
